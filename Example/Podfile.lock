@@ -1,0 +1,16 @@
+PODS:
+  - LgBaseSDK (0.1.0)
+
+DEPENDENCIES:
+  - LgBaseSDK (from `../`)
+
+EXTERNAL SOURCES:
+  LgBaseSDK:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LgBaseSDK: 223f28c9661510bfadb2a81f8c2c5c754b67c89b
+
+PODFILE CHECKSUM: 717cbdc392994df4712c68a5abba317603eb6f64
+
+COCOAPODS: 1.10.0

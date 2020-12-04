@@ -28,9 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		199A376F74912B2AAEB614DF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		24CA9F2F2209FC37BC4EF281 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		288FA8417213E178E8CB5F21 /* LgBaseSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = LgBaseSDK.podspec; path = ../LgBaseSDK.podspec; sourceTree = "<group>"; };
+		199A376F74912B2AAEB614DF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		24CA9F2F2209FC37BC4EF281 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		288FA8417213E178E8CB5F21 /* LgBaseSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LgBaseSDK.podspec; path = ../LgBaseSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2E03E7A39A6FA8E1F93B941A /* Pods-LgBaseSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LgBaseSDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-LgBaseSDK_Example/Pods-LgBaseSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		40A5A9371DD55A82C07B68F5 /* Pods-LgBaseSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LgBaseSDK_Tests.release.xcconfig"; path = "Target Support Files/Pods-LgBaseSDK_Tests/Pods-LgBaseSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* LgBaseSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LgBaseSDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +147,6 @@
 				E668292422B415A8E3FB3F54 /* Pods-LgBaseSDK_Tests.debug.xcconfig */,
 				40A5A9371DD55A82C07B68F5 /* Pods-LgBaseSDK_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,6 +226,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

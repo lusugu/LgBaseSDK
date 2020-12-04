@@ -21,14 +21,14 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/lusugu2004@163.com/LgBaseSDK'
+  s.homepage         = 'https://github.com/lusugu/LgBaseSDK'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'lusugu2004@163.com' => 'shuguang.lu@yubang168.cn' }
-  s.source           = { :git => 'https://github.com/lusugu2004@163.com/LgBaseSDK.git', :tag => s.version.to_s }
+  s.author           = { 'lusugu2004@163.com' => 'lusugu2004@163.com' }
+  s.source           = { :git => 'https://github.com/lusugu/LgBaseSDK.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'LgBaseSDK/Classes/**/*'
   

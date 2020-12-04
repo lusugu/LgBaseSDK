@@ -1,0 +1,6 @@
+framework module LgBaseSDK {
+  umbrella header "LgBaseSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}
