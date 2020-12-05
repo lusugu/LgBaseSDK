@@ -1,15 +1,46 @@
 PODS:
-  - LgBaseSDK (0.1.0)
+  - Differentiator (4.0.1)
+  - LgBaseSDK (0.1.1):
+    - RxCocoa
+    - RxDataSources
+    - RxSwift
+    - SnapKit
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+  - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - LgBaseSDK (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Differentiator
+    - RxCocoa
+    - RxDataSources
+    - RxRelay
+    - RxSwift
+    - SnapKit
 
 EXTERNAL SOURCES:
   LgBaseSDK:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LgBaseSDK: 223f28c9661510bfadb2a81f8c2c5c754b67c89b
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
+  LgBaseSDK: 2d8a0212e0ca3c5df761f72941c82cf1c56f9bc1
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
 PODFILE CHECKSUM: 717cbdc392994df4712c68a5abba317603eb6f64
 
