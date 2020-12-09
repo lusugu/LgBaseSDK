@@ -13,6 +13,9 @@ open class LGTabbarController: UITabBarController {
 
         // Do any additional setup after loading the view.
         self.tabBar.isTranslucent = false
+        
+        setUpConstraints()
+        viewEvent()
     }
     
     //MARK: - attribute
@@ -20,7 +23,7 @@ open class LGTabbarController: UITabBarController {
         didSet {
             var navs: [UINavigationController] = []
             for item in items {
-                let m: AnyObject = item.viewModel.initialize() as AnyObject
+                let m = item.viewModel!
                 var vc: UIViewController?
                 if m.isKind(of: LGTableViewModel.classForCoder()) {
                     vc = (m as! LGTableViewModel).toViewController()
