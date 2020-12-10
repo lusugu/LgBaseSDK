@@ -13,6 +13,9 @@ open class LGTabbarController: UITabBarController {
 
         // Do any additional setup after loading the view.
         self.tabBar.isTranslucent = false
+        
+        setUpConstraints()
+        viewEvent()
     }
     
     //MARK: - attribute
@@ -20,12 +23,13 @@ open class LGTabbarController: UITabBarController {
         didSet {
             var navs: [UINavigationController] = []
             for item in items {
+                let m = item.viewModel!
                 var vc: UIViewController?
-                if item.viewModel!.isKind(of: LGTableViewModel.classForCoder()) {
-                    vc = (item.viewModel! as! LGTableViewModel).toViewController()
+                if m.isKind(of: LGTableViewModel.classForCoder()) {
+                    vc = (m as! LGTableViewModel).toViewController()
                 }
-                else if item.viewModel!.isKind(of: LGViewModel.classForCoder()) {
-                    vc = (item.viewModel! as! LGViewModel).toViewController()
+                else if m.isKind(of: LGViewModel.classForCoder()) {
+                    vc = (m as! LGViewModel).toViewController()
                 }
                 
                 let nav = UINavigationController(rootViewController: vc!)
@@ -55,9 +59,9 @@ public struct TabbarItem {
     var title: String = ""
     var image: String = ""
     var imageSelect: String = ""
-    var viewModel: AnyObject!
+    var viewModel: AnyClass!
     
-    public init(title: String, image: String, imageSelect: String, viewModel: AnyObject) {
+    public init(title: String, image: String, imageSelect: String, viewModel: AnyClass) {
         self.title = title
         self.image = image
         self.imageSelect = imageSelect

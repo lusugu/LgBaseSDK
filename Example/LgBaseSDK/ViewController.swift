@@ -7,17 +7,17 @@
 //
 
 import UIKit
+import LgBaseSDK
 
-class ViewController: UIViewController {
+class ViewController: LGTabbarController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+    override func setUpConstraints() {
+        super.setUpConstraints()
+        
+        let main = TabbarItem(title: "首页", image: "tabbar_class", imageSelect: "tabbar_class_hover", viewModel: BtMainViewModel())
+        let mine = TabbarItem(title: "我的", image: "tabbar_profile", imageSelect: "tabbar_profile_hover", viewModel: BtMineViewModel())
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.items = [main, mine];
     }
 
 }
