@@ -23,20 +23,24 @@ open class LGTabbarController: UITabBarController {
         didSet {
             var navs: [UINavigationController] = []
             for item in items {
-                let m = item.viewModel!
-                var vc: UIViewController?
-                if m.isKind(of: LGTableViewModel.classForCoder()) {
-                    vc = (m as! LGTableViewModel).toViewController()
+                var nav : UINavigationController?
+                var vc: UIViewController? = item.viewModel?.toViewController()
+                if let _ = vc {
+                    nav = UINavigationController(rootViewController: vc!)
                 }
-                else if m.isKind(of: LGViewModel.classForCoder()) {
-                    vc = (m as! LGViewModel).toViewController()
+                else {
+                    vc = item.tableViewModel?.toViewController()
+                    if let _ = vc {
+                        nav = UINavigationController(rootViewController: vc!)
+                    }
                 }
                 
-                let nav = UINavigationController(rootViewController: vc!)
-                nav.tabBarItem.title = item.title
-                nav.tabBarItem.image = UIImage(named: item.image)?.withRenderingMode(.alwaysOriginal)
-                nav.tabBarItem.selectedImage = UIImage(named: item.imageSelect)?.withRenderingMode(.alwaysOriginal)
-                navs.append(nav)
+                if let _ = vc {
+                    nav!.tabBarItem.title = item.title
+                    nav!.tabBarItem.image = UIImage(named: item.image)?.withRenderingMode(.alwaysOriginal)
+                    nav!.tabBarItem.selectedImage = UIImage(named: item.imageSelect)?.withRenderingMode(.alwaysOriginal)
+                    navs.append(nav!)
+                }
             }
 
             self.viewControllers = navs
@@ -59,12 +63,14 @@ public struct TabbarItem {
     var title: String = ""
     var image: String = ""
     var imageSelect: String = ""
-    var viewModel: AnyClass!
+    var viewModel: LGViewModel?
+    var tableViewModel: LGTableViewModel?
     
-    public init(title: String, image: String, imageSelect: String, viewModel: AnyClass) {
+    public init(title: String, image: String, imageSelect: String, viewModel: LGViewModel? = nil , tableViewModel: LGTableViewModel? = nil) {
         self.title = title
         self.image = image
         self.imageSelect = imageSelect
         self.viewModel = viewModel
+        self.tableViewModel = tableViewModel
     }
 }

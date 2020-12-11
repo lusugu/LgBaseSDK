@@ -9,5 +9,11 @@ import UIKit
 import LgBaseSDK
 
 class BtMainViewModel: LGViewModel {
+    
+    override func initialBind() {
+        super.initialBind()
+    
+        print("123")
+    }
 
 }
