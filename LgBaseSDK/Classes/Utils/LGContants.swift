@@ -14,7 +14,7 @@ let isPhone_6 = jm_isPhone && CGFloat.screen.height == 667.0
 
 //MARK: - 圆角
 /// 有圆角就不能设置阴影
-public func viewBorderRadius(view: UIView, radius: CGFloat, width: CGFloat = 0.5, color: UIColor = .clear) {
+public func lgViewBorderRadius(view: UIView, radius: CGFloat, width: CGFloat = 0.5, color: UIColor = .clear) {
     view.layer.cornerRadius = radius
     view.layer.masksToBounds = true
     view.layer.borderWidth = width

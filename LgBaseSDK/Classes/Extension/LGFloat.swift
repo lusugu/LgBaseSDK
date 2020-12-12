@@ -7,8 +7,25 @@
 
 import UIKit
 
-public extension CGFloat {
+public extension Int {
+    var cWidth: CGFloat {
+        if CGFloat.screen.width <= 375.0 {
+            return CGFloat(self)
+        }
+        return CGFloat(self) * CGFloat.screen.rate
+    }
+}
 
+public extension Double {
+    var cWidth: CGFloat {
+        if CGFloat.screen.width <= 375.0 {
+            return CGFloat(self)
+        }
+        return CGFloat(self) * CGFloat.screen.rate
+    }
+}
+
+public extension CGFloat {
     //MARK: - 对外方法和属性
     public static var screen: Screen = Screen(width: sw,
                                               height: sh,
