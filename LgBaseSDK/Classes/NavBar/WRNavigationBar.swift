@@ -9,7 +9,7 @@
 
 import UIKit
 
-extension UINavigationBar:WRAwakeProtocol
+extension UINavigationBar: WRAwakeProtocol
 {
     fileprivate struct AssociatedKeys {
         static var backgroundView: UIView = UIView()
@@ -91,7 +91,7 @@ extension UINavigationBar:WRAwakeProtocol
     }
     
     // 设置导航栏所有BarButtonItem的透明度
-    func wr_setBarButtonItemsAlpha(alpha:CGFloat, hasSystemBackIndicator:Bool)
+    public func wr_setBarButtonItemsAlpha(alpha:CGFloat, hasSystemBackIndicator:Bool)
     {
         for view in subviews
         {
@@ -137,12 +137,12 @@ extension UINavigationBar:WRAwakeProtocol
     }
     
     /// 设置导航栏在垂直方向上平移多少距离
-    func wr_setTranslationY(translationY:CGFloat)
+    public func wr_setTranslationY(translationY:CGFloat)
     {
         transform = CGAffineTransform.init(translationX: 0, y: translationY)
     }
     
-    func wr_getTranslationY() -> CGFloat
+    public func wr_getTranslationY() -> CGFloat
     {
         return transform.ty
     }
@@ -170,7 +170,7 @@ extension UINavigationBar:WRAwakeProtocol
     //==========================================================================
     // MARK: swizzling pop
     //==========================================================================
-    @objc func wr_setTitleTextAttributes(_ newTitleTextAttributes:[String : Any]?)
+    @objc public func wr_setTitleTextAttributes(_ newTitleTextAttributes:[String : Any]?)
     {
         guard var attributes = newTitleTextAttributes else {
             return
@@ -311,7 +311,7 @@ extension UINavigationController: WRFatherAwakeProtocol
     }
     
     // swizzling system method: popToViewController
-    @objc func wr_popToViewController(_ viewController: UIViewController, animated: Bool) -> [UIViewController]?
+    @objc public func wr_popToViewController(_ viewController: UIViewController, animated: Bool) -> [UIViewController]?
     {
         setNeedsNavigationBarUpdate(titleColor: viewController.navBarTitleColor)
         var displayLink:CADisplayLink? = CADisplayLink(target: self, selector: #selector(popNeedDisplay))
@@ -470,7 +470,7 @@ extension UINavigationController: UINavigationBarDelegate
     }
     
     // swizzling system method: _updateInteractiveTransition
-    @objc func wr_updateInteractiveTransition(_ percentComplete: CGFloat)
+    @objc public func wr_updateInteractiveTransition(_ percentComplete: CGFloat)
     {
         guard let topViewController = topViewController,
             let coordinator       = topViewController.transitionCoordinator else {
@@ -535,7 +535,7 @@ extension UIViewController: WRAwakeProtocol
     }
     
     // you can set navigationBar backgroundImage
-    var navBarBackgroundImage: UIImage?
+    public var navBarBackgroundImage: UIImage?
     {
         get {
             guard let bgImage = objc_getAssociatedObject(self, &AssociatedKeys.navBarBackgroundImage) as? UIImage else {
@@ -555,7 +555,7 @@ extension UIViewController: WRAwakeProtocol
     }
     
     // navigationBar barTintColor
-    var navBarBarTintColor: UIColor {
+    public var navBarBarTintColor: UIColor {
         get {
             guard let barTintColor = objc_getAssociatedObject(self, &AssociatedKeys.navBarBarTintColor) as? UIColor else {
                 return WRNavigationBar.defaultNavBarBarTintColor
@@ -578,7 +578,7 @@ extension UIViewController: WRAwakeProtocol
     }
 
     // navigationBar _UIBarBackground alpha
-    var navBarBackgroundAlpha:CGFloat {
+    public var navBarBackgroundAlpha:CGFloat {
         get {
             guard let barBackgroundAlpha = objc_getAssociatedObject(self, &AssociatedKeys.navBarBackgroundAlpha) as? CGFloat else {
                 return 1.0
@@ -611,7 +611,7 @@ extension UIViewController: WRAwakeProtocol
     }
     
     // navigationBar tintColor
-    var navBarTintColor: UIColor {
+    public var navBarTintColor: UIColor {
         get {
             guard let tintColor = objc_getAssociatedObject(self, &AssociatedKeys.navBarTintColor) as? UIColor else {
                 return WRNavigationBar.defaultNavBarTintColor
@@ -635,7 +635,7 @@ extension UIViewController: WRAwakeProtocol
     }
     
     // navigationBar titleColor
-    var navBarTitleColor: UIColor {
+    public var navBarTitleColor: UIColor {
         get {
             guard let titleColor = objc_getAssociatedObject(self, &AssociatedKeys.navBarTitleColor) as? UIColor else {
                 return WRNavigationBar.defaultNavBarTitleColor
@@ -659,7 +659,7 @@ extension UIViewController: WRAwakeProtocol
     }
 
     // statusBarStyle
-    var statusBarStyle: UIStatusBarStyle {
+    public var statusBarStyle: UIStatusBarStyle {
         get {
             guard let style = objc_getAssociatedObject(self, &AssociatedKeys.statusBarStyle) as? UIStatusBarStyle else {
                 return WRNavigationBar.defaultStatusBarStyle
@@ -673,7 +673,7 @@ extension UIViewController: WRAwakeProtocol
     }
     
     // if you want shadowImage hidden,you can via hideShadowImage = true
-    var navBarShadowImageHidden:Bool {
+    public var navBarShadowImageHidden:Bool {
         get {
             guard let isHidden = objc_getAssociatedObject(self, &AssociatedKeys.navBarShadowImageHidden) as? Bool else {
                 return WRNavigationBar.defaultShadowImageHidden
@@ -687,7 +687,7 @@ extension UIViewController: WRAwakeProtocol
     }
     
     // custom navigationBar
-    var customNavBar: UIView {
+    public var customNavBar: UIView {
         get {
             guard let navBar = objc_getAssociatedObject(self, &AssociatedKeys.customNavBar) as? UINavigationBar else {
                 return UIView()
@@ -722,7 +722,7 @@ extension UIViewController: WRAwakeProtocol
         }
     }
     
-    @objc func wr_viewWillAppear(_ animated: Bool)
+    @objc public func wr_viewWillAppear(_ animated: Bool)
     {
         if canUpdateNavigationBar() == true {
             pushToNextVCFinished = false
@@ -732,7 +732,7 @@ extension UIViewController: WRAwakeProtocol
         wr_viewWillAppear(animated)
     }
     
-    @objc func wr_viewWillDisappear(_ animated: Bool)
+    @objc public func wr_viewWillDisappear(_ animated: Bool)
     {
         if canUpdateNavigationBar() == true {
             pushToNextVCFinished = true
@@ -740,7 +740,7 @@ extension UIViewController: WRAwakeProtocol
         wr_viewWillDisappear(animated)
     }
     
-    @objc func wr_viewDidAppear(_ animated: Bool)
+    @objc public func wr_viewDidAppear(_ animated: Bool)
     {
         
         if self.navigationController?.viewControllers.first != self {
@@ -761,7 +761,7 @@ extension UIViewController: WRAwakeProtocol
         wr_viewDidAppear(animated)
     }
     
-    func canUpdateNavigationBar() -> Bool
+    public func canUpdateNavigationBar() -> Bool
     {
         let viewFrame = view.frame
         let maxFrame = UIScreen.main.bounds
@@ -818,7 +818,7 @@ class WRNavigationBar
         static var defShadowImageHidden: Bool = false
     }
     
-    class var defaultNavBarBarTintColor: UIColor {
+    public class var defaultNavBarBarTintColor: UIColor {
         get {
             guard let def = objc_getAssociatedObject(self, &AssociatedKeys.defNavBarBarTintColor) as? UIColor else {
                 return AssociatedKeys.defNavBarBarTintColor
@@ -830,7 +830,7 @@ class WRNavigationBar
         }
     }
     
-    class var defaultNavBarBackgroundImage: UIImage? {
+    public class var defaultNavBarBackgroundImage: UIImage? {
         get {
             guard let def = objc_getAssociatedObject(self, &AssociatedKeys.defNavBarBackgroundImage) as? UIImage else {
                 return nil
@@ -842,7 +842,7 @@ class WRNavigationBar
         }
     }
     
-    class var defaultNavBarTintColor: UIColor {
+    public class var defaultNavBarTintColor: UIColor {
         get {
             guard let def = objc_getAssociatedObject(self, &AssociatedKeys.defNavBarTintColor) as? UIColor else {
                 return AssociatedKeys.defNavBarTintColor
@@ -854,7 +854,7 @@ class WRNavigationBar
         }
     }
     
-    class var defaultNavBarTitleColor: UIColor {
+    public class var defaultNavBarTitleColor: UIColor {
         get {
             guard let def = objc_getAssociatedObject(self, &AssociatedKeys.defNavBarTitleColor) as? UIColor else {
                 return AssociatedKeys.defNavBarTitleColor
@@ -866,7 +866,7 @@ class WRNavigationBar
         }
     }
     
-    class var defaultStatusBarStyle: UIStatusBarStyle {
+    public class var defaultStatusBarStyle: UIStatusBarStyle {
         get {
             guard let def = objc_getAssociatedObject(self, &AssociatedKeys.defStatusBarStyle) as? UIStatusBarStyle else {
                 return .default
@@ -878,7 +878,7 @@ class WRNavigationBar
         }
     }
     
-    class var defaultShadowImageHidden: Bool {
+    public class var defaultShadowImageHidden: Bool {
         get {
             guard let def = objc_getAssociatedObject(self, &AssociatedKeys.defShadowImageHidden) as? Bool else {
                 return false
@@ -890,7 +890,7 @@ class WRNavigationBar
         }
     }
     
-    class var defaultBackgroundAlpha: CGFloat {
+    public class var defaultBackgroundAlpha: CGFloat {
         get {
             return 1.0
         }
@@ -931,19 +931,19 @@ class WRNavigationBar
 
 extension WRNavigationBar
 {
-    class func isIphoneX() -> Bool {
+    class public func isIphoneX() -> Bool {
         return UIScreen.main.bounds.equalTo(CGRect(x: 0, y: 0, width: 375, height: 812))
     }
-    class func navBarBottom() -> Int {
+    class public func navBarBottom() -> Int {
         return self.isIphoneX() ? 88 : 64;
     }
-    class func tabBarHeight() -> Int {
+    class public func tabBarHeight() -> Int {
         return self.isIphoneX() ? 83 : 49;
     }
-    class func screenWidth() -> Int {
+    class public func screenWidth() -> Int {
         return Int(UIScreen.main.bounds.size.width)
     }
-    class func screenHeight() -> Int {
+    class public func screenHeight() -> Int {
         return Int(UIScreen.main.bounds.size.height)
     }
 }
@@ -968,7 +968,7 @@ public protocol WRFatherAwakeProtocol: class
     static func fatherAwake()
 }
 
-class NothingToSeeHere
+public class NothingToSeeHere
 {
     static func harmlessFunction(){
 //        let typeCount = Int(objc_getClassList(nil, 0))
@@ -987,7 +987,7 @@ class NothingToSeeHere
 }
 
 // 2. 让APP启动时只执行一次 harmlessFunction 方法
-extension UIApplication
+public extension UIApplication
 {
     private static let runOnce:Void = { //使用静态属性以保证只调用一次(该属性是个方法)
         NothingToSeeHere.harmlessFunction()

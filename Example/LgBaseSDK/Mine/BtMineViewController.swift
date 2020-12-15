@@ -14,11 +14,8 @@ class BtMineViewController: LGViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    
-        let l = UILabel()
-        l.snp.makeConstraints { (make) in
-            make.left.equalTo(20.cWidth);
-        }
+        navBarBarTintColor = .red
+        
     }
     
     

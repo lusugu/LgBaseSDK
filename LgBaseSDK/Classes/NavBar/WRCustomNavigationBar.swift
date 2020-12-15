@@ -15,7 +15,7 @@ fileprivate let WRScreenWidth = UIScreen.main.bounds.size.width
 
 
 // MARK: - Router
-extension UIViewController
+public extension UIViewController
 {
     //  A页面 弹出 登录页面B
     //  presentedViewController:    A页面
@@ -67,34 +67,34 @@ extension UIViewController
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class WRCustomNavigationBar: UIView
+public class WRCustomNavigationBar: UIView
 {
-    var onClickLeftButton:(()->())?
-    var onClickRightButton:(()->())?
-    var title:String? {
+    public var onClickLeftButton:(()->())?
+    public var onClickRightButton:(()->())?
+    public var title:String? {
         willSet {
             titleLabel.isHidden = false
             titleLabel.text = newValue
         }
     }
-    var titleLabelColor:UIColor? {
+    public var titleLabelColor:UIColor? {
         willSet {
             titleLabel.textColor = newValue
         }
     }
-    var titleLabelFont:UIFont? {
+    public var titleLabelFont:UIFont? {
         willSet {
             titleLabel.font = newValue
         }
     }
-    var barBackgroundColor:UIColor? {
+    public var barBackgroundColor:UIColor? {
         willSet {
             backgroundImageView.isHidden = true
             backgroundView.isHidden = false
             backgroundView.backgroundColor = newValue
         }
     }
-    var barBackgroundImage:UIImage? {
+    public var barBackgroundImage:UIImage? {
         willSet {
             backgroundView.isHidden = true
             backgroundImageView.isHidden = false
@@ -202,7 +202,7 @@ class WRCustomNavigationBar: UIView
 }
 
 
-extension WRCustomNavigationBar
+public extension WRCustomNavigationBar
 {
     func wr_setBottomLineHidden(hidden:Bool) {
         bottomLine.isHidden = hidden
@@ -259,7 +259,7 @@ extension WRCustomNavigationBar
 
 
 // MARK: - 导航栏左右按钮事件
-extension WRCustomNavigationBar
+public extension WRCustomNavigationBar
 {
     @objc func clickBack() {
         if let onClickBack = onClickLeftButton {
