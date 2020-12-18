@@ -7,14 +7,14 @@
 
 import UIKit
 
-public extension UIImage {
+extension UIImage {
     //MARK: - 创建一个颜色的图片UIImage
     /// 创建一个纯颜色的图片UIImage
     /// - Parameters:
     ///   - rgb: 颜色色值
     ///   - size: 图片大小
     /// - Returns: 图片对象
-    class func image(rgb: UInt32, size: CGSize = CGSize(width: 10, height: 10)) -> UIImage? {
+    public func color(rgb: UInt32, size: CGSize = CGSize(width: 10, height: 10)) -> UIImage? {
         let rect = CGRect(origin: CGPoint.zero, size: size)
         let co = UIColor(rgb: rgb)
         UIGraphicsBeginImageContext(size)
@@ -33,7 +33,7 @@ public extension UIImage {
     ///   - rgb: 颜色对象
     ///   - size: 图片大小
     /// - Returns: 图片对象
-    class func image(color: UIColor, size: CGSize = CGSize(width: 10, height: 10)) -> UIImage? {
+    public func color(color: UIColor, size: CGSize = CGSize(width: 10, height: 10)) -> UIImage? {
         let rect = CGRect(origin: CGPoint.zero, size: size)
         UIGraphicsBeginImageContext(size)
         defer {

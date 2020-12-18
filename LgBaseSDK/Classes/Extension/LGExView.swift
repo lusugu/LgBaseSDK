@@ -7,12 +7,23 @@
 
 import UIKit
 
-public extension UIView {
+@objc extension UIView {
     @objc open func setUpConstraints() {}
     @objc open func viewEvent() {}
 }
 
-public extension UIViewController {
+@objc extension UIViewController {
     @objc open func setUpConstraints() {}
     @objc open func viewEvent() {}
+}
+
+public extension UIView {
+    /// 背景颜色
+    /// - Parameter color: 颜色
+    /// - Returns: 返回本身
+    @discardableResult
+    func lgBackgroundColor<T: UIView>(_ color: UIColor) -> T {
+        self.backgroundColor = color
+        return self as! T
+    }
 }

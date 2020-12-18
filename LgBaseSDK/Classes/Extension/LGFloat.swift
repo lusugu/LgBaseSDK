@@ -7,8 +7,8 @@
 
 import UIKit
 
-public extension Int {
-    var cWidth: CGFloat {
+extension Int {
+    public var cWidth: CGFloat {
         if CGFloat.screen.width <= 375.0 {
             return CGFloat(self)
         }
@@ -16,8 +16,8 @@ public extension Int {
     }
 }
 
-public extension Double {
-    var cWidth: CGFloat {
+extension Double {
+    public var cWidth: CGFloat {
         if CGFloat.screen.width <= 375.0 {
             return CGFloat(self)
         }
@@ -25,7 +25,29 @@ public extension Double {
     }
 }
 
-public extension CGFloat {
+//MARK: - 尺寸
+public struct Screen {
+    /// 屏幕宽度
+    public var width: CGFloat
+    /// 屏幕高度
+    public var height: CGFloat
+    /// 比例
+    public var rate: CGFloat
+}
+
+//MARK: - safe
+public struct Safe {
+    /// safeareaInsets 头部刘海高度
+    public var top: CGFloat
+    /// 底部
+    public var bottom: CGFloat
+    /// 左边
+    public var left: CGFloat
+    /// 右边
+    public var right: CGFloat
+}
+
+extension CGFloat {
     //MARK: - 对外方法和属性
     public static var screen: Screen = Screen(width: sw,
                                               height: sh,
@@ -36,16 +58,6 @@ public extension CGFloat {
                                         left: sLeft,
                                         right: sRight)
     
-    //MARK: - 尺寸
-    public struct Screen {
-        /// 屏幕宽度
-        var width: CGFloat
-        /// 屏幕高度
-        var height: CGFloat
-        /// 比例
-        var rate: CGFloat
-    }
-    
     private static var sw: CGFloat {
         return UIScreen.main.bounds.size.width
     }
@@ -53,19 +65,7 @@ public extension CGFloat {
     private static var sh: CGFloat {
         return UIScreen.main.bounds.size.height
     }
-    
-    //MARK: - safe
-    public struct Safe {
-        /// safeareaInsets 头部刘海高度
-        var top: CGFloat
-        /// 底部
-        var bottom: CGFloat
-        /// 左边
-        var left: CGFloat
-        /// 右边
-        var right: CGFloat
-    }
-    
+        
     private static var sTop: CGFloat {
         if #available(iOS 11.0, *) {
             return UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0

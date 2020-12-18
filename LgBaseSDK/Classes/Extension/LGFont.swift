@@ -7,15 +7,15 @@
 
 import UIKit
 
-public extension UIFont {
-    static func font(_ size: CGFloat) -> UIFont {
+extension UIFont {
+    static public func font(_ size: CGFloat) -> UIFont {
         if CGFloat.screen.width <= 375.0 {
             return UIFont.systemFont(ofSize:size)
         }
         return UIFont.systemFont(ofSize:size * CGFloat.screen.rate)
     }
     
-    static func fontBold(_ size: CGFloat) -> UIFont {
+    static public func fontBold(_ size: CGFloat) -> UIFont {
         if CGFloat.screen.width <= 375.0 {
             return UIFont.boldSystemFont(ofSize:size)
         }

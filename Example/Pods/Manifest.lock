@@ -3,7 +3,7 @@ PODS:
   - Kingfisher (5.15.8):
     - Kingfisher/Core (= 5.15.8)
   - Kingfisher/Core (5.15.8)
-  - LgBaseSDK (0.1.5):
+  - LgBaseSDK (0.1.7):
     - Kingfisher
     - RxCocoa
     - RxDataSources
@@ -41,7 +41,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
-  LgBaseSDK: 1d04be5f0de3ef9bee2a8673bd44c69266306d3d
+  LgBaseSDK: 74fe8a58731bca0dc04d591b086b39170ba4dbb2
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
