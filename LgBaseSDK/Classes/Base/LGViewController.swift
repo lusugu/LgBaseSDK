@@ -25,6 +25,7 @@ open class LGViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .white
         
+        setUpViews()
         setUpConstraints()
         viewEvent()
     }

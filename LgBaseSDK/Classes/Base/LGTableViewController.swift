@@ -26,6 +26,7 @@ open class LGTableViewController: UITableViewController {
 
         self.tableView.separatorStyle = .none
         
+        setUpViews()
         setUpConstraints()
         viewEvent()
         

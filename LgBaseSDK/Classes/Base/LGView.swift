@@ -9,11 +9,12 @@ import UIKit
 
 open class LGView: UIView {
 
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.setUpConstraints()
-        self.viewEvent()
+        setUpViews()
+        setUpConstraints()
+        viewEvent()
     }
     
     required public init?(coder: NSCoder) {

@@ -14,6 +14,7 @@ open class LGTabbarController: UITabBarController {
         // Do any additional setup after loading the view.
         self.tabBar.isTranslucent = false
         
+        setUpViews()
         setUpConstraints()
         viewEvent()
     }

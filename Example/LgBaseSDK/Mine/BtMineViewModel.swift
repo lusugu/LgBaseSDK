@@ -13,7 +13,7 @@ class BtMineViewModel: LGViewModel {
     override func initialBind() {
         super.initialBind()
     
-        print("123")
+        
     }
 
 }
