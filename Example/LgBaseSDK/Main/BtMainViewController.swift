@@ -12,7 +12,7 @@ class BtMainViewController: LGViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         let l = UILabel()
             .lgFontSize(12)
         l.lgText("上午安抚")

@@ -317,7 +317,7 @@ extension UINavigationController: WRFatherAwakeProtocol
         var displayLink:CADisplayLink? = CADisplayLink(target: self, selector: #selector(popNeedDisplay))
         // UITrackingRunLoopMode: 界面跟踪 Mode，用于 ScrollView 追踪触摸滑动，保证界面滑动时不受其他 Mode 影响
         // NSRunLoopCommonModes contains kCFRunLoopDefaultMode and UITrackingRunLoopMode
-        displayLink?.add(to: RunLoop.main, forMode: .commonModes)
+        displayLink?.add(to: RunLoop.main, forMode: .common)
         CATransaction.setCompletionBlock {
             displayLink?.invalidate()
             displayLink = nil
@@ -334,7 +334,7 @@ extension UINavigationController: WRFatherAwakeProtocol
     @objc func wr_popToRootViewControllerAnimated(_ animated: Bool) -> [UIViewController]?
     {
         var displayLink:CADisplayLink? = CADisplayLink(target: self, selector: #selector(popNeedDisplay))
-        displayLink?.add(to: RunLoop.main, forMode: .commonModes)
+        displayLink?.add(to: RunLoop.main, forMode: .common)
         CATransaction.setCompletionBlock {
             displayLink?.invalidate()
             displayLink = nil
@@ -381,7 +381,7 @@ extension UINavigationController: WRFatherAwakeProtocol
     @objc func wr_pushViewController(_ viewController: UIViewController, animated: Bool)
     {
         var displayLink:CADisplayLink? = CADisplayLink(target: self, selector: #selector(pushNeedDisplay))
-        displayLink?.add(to: RunLoop.main, forMode: .commonModes)
+        displayLink?.add(to: RunLoop.main, forMode: .common)
         CATransaction.setCompletionBlock {
             displayLink?.invalidate()
             displayLink = nil

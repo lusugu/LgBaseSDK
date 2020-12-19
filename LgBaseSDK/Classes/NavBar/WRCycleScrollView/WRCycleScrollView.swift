@@ -225,7 +225,7 @@ extension WRCycleScrollView
     func setupTimer()
     {
         timer = Timer(timeInterval: autoScrollInterval, target: self, selector: #selector(changeCycleCell), userInfo: nil, repeats: true)
-        RunLoop.main.add(timer!, forMode: .commonModes)
+        RunLoop.main.add(timer!, forMode: .common)
     }
     
     fileprivate func changeToFirstCycleCell(animated:Bool)
