@@ -268,51 +268,51 @@ public extension UIView {
     }
     
     //MARK: - 外部 数据添加
-    func snpLeft<T: UIView>(_ left: CGFloat, sLConstraint: SnapKit.ConstraintItem? = nil) -> T {
+    func snpLeft<T: UIView>(_ left: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
         sLeft = left
-        lConstraint = sLConstraint
+        lConstraint = constraint
         return self as! T
     }
     
-    func snpRight<T: UIView>(_ right: CGFloat, sRConstraint: SnapKit.ConstraintItem? = nil) -> T {
+    func snpRight<T: UIView>(_ right: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
         sRight = right
-        rConstraint = sRConstraint
+        rConstraint = constraint
         return self as! T
     }
     
-    func snpTop<T: UIView>(_ top: CGFloat, sTConstraint: SnapKit.ConstraintItem? = nil) -> T {
+    func snpTop<T: UIView>(_ top: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
         sTop = top
-        tConstraint = sTConstraint
+        tConstraint = constraint
         return self as! T
     }
     
-    func snpBottom<T: UIView>(_ bottom: CGFloat, sBConstraint: SnapKit.ConstraintItem? = nil) -> T {
+    func snpBottom<T: UIView>(_ bottom: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
         sBottom = bottom
-        bConstraint = sBConstraint
+        bConstraint = constraint
         return self as! T
     }
     
-    func snpWidth<T: UIView>(_ width: CGFloat, swConstraint: SnapKit.ConstraintItem? = nil) -> T {
+    func snpWidth<T: UIView>(_ width: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
         sWidth = width
-        wConstraint = swConstraint
+        wConstraint = constraint
         return self as! T
     }
     
-    func snpHeight<T: UIView>(_ height: CGFloat, sHConstraint: SnapKit.ConstraintItem? = nil) -> T {
+    func snpHeight<T: UIView>(_ height: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
         sHeight = height
-        hConstraint = sHConstraint
+        hConstraint = constraint
         return self as! T
     }
     
-    func snpCenterX<T: UIView>(_ centerX: CGFloat, xConstraint: SnapKit.ConstraintItem? = nil) -> T {
+    func snpCenterX<T: UIView>(_ centerX: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
         sCenterX = centerX
-        sxConstraint = xConstraint
+        sxConstraint = constraint
         return self as! T
     }
     
-    func snpCenterY<T: UIView>(_ centerY: CGFloat, yConstraint: SnapKit.ConstraintItem? = nil) -> T {
+    func snpCenterY<T: UIView>(_ centerY: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
         sCenterY = centerY
-        syConstraint = yConstraint
+        syConstraint = constraint
         return self as! T
     }
     

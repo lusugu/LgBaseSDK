@@ -32,9 +32,9 @@ class BtMineViewController: LGViewController {
         l.backgroundColor = .yellow
         view.addSubview(l)
         
-        l.snpLeft(10, sLConstraint: img.snp.right)
+        l.snpLeft(10, constraint: img.snp.right)
             .snpHeight(100)
-            .snpCenterY(0, yConstraint: img.snp.centerY)
+            .snpCenterY(0, constraint: img.snp.centerY)
             .drawConstraints()
     }
     
