@@ -20,10 +20,10 @@ class BtMineViewController: LGViewController {
         img.image = UIImage(named: "icon")
         view.addSubview(img)
         
-        img.snpLeft(20)
-            .snpWidth(20)
-            .snpHeight(20)
-            .snpTop(200)
+        img.snpLeft(offset: 20)
+            .snpWidth(offset: 20)
+            .snpHeight(offset: 20)
+            .snpTop(offset: 200)
             .drawConstraints()
         
         let l = UILabel()
@@ -32,9 +32,9 @@ class BtMineViewController: LGViewController {
         l.backgroundColor = .yellow
         view.addSubview(l)
         
-        l.snpLeft(10, constraint: img.snp.right)
-            .snpHeight(100)
-            .snpCenterY(0, constraint: img.snp.centerY)
+        l.snpLeft(img.snp.right, offset: 10)
+            .snpHeight(offset: 100)
+            .snpCenterY(img.snp.centerY)
             .drawConstraints()
     }
     

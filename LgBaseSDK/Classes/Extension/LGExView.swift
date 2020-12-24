@@ -22,11 +22,11 @@ let viewDefault: CGFloat = 9999
     @objc open func viewEvent() {}
 }
 
-public extension UIView {
+extension UIView {
     
     //MARK : - 最后起作用方法
     /// 最后起作用方法
-    func drawConstraints() {
+    public func drawConstraints() {
         self.snp.remakeConstraints { (make) in
             if self.sLeft != viewDefault {
                 if let tmp = lConstraint {
@@ -268,50 +268,58 @@ public extension UIView {
     }
     
     //MARK: - 外部 数据添加
-    func snpLeft<T: UIView>(_ left: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
-        sLeft = left
+    public func snpLeft<T: UIView>(_ constraint: SnapKit.ConstraintItem? = nil,
+                            offset: CGFloat = 0) -> T {
+        sLeft = offset
         lConstraint = constraint
         return self as! T
     }
     
-    func snpRight<T: UIView>(_ right: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
-        sRight = right
+    public func snpRight<T: UIView>(_ constraint: SnapKit.ConstraintItem? = nil,
+                                    offset: CGFloat = 0) -> T {
+        sRight = offset
         rConstraint = constraint
         return self as! T
     }
     
-    func snpTop<T: UIView>(_ top: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
-        sTop = top
+    public func snpTop<T: UIView>(_ constraint: SnapKit.ConstraintItem? = nil,
+                                  offset: CGFloat = 0) -> T {
+        sTop = offset
         tConstraint = constraint
         return self as! T
     }
     
-    func snpBottom<T: UIView>(_ bottom: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
-        sBottom = bottom
+    public func snpBottom<T: UIView>(_ constraint: SnapKit.ConstraintItem? = nil,
+                                     offset: CGFloat = 0) -> T {
+        sBottom = offset
         bConstraint = constraint
         return self as! T
     }
     
-    func snpWidth<T: UIView>(_ width: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
-        sWidth = width
+    public func snpWidth<T: UIView>(_ constraint: SnapKit.ConstraintItem? = nil,
+                                    offset: CGFloat = 0) -> T {
+        sWidth = offset
         wConstraint = constraint
         return self as! T
     }
     
-    func snpHeight<T: UIView>(_ height: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
-        sHeight = height
+    public func snpHeight<T: UIView>(_ constraint: SnapKit.ConstraintItem? = nil,
+                                     offset: CGFloat = 0) -> T {
+        sHeight = offset
         hConstraint = constraint
         return self as! T
     }
     
-    func snpCenterX<T: UIView>(_ centerX: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
-        sCenterX = centerX
+    public func snpCenterX<T: UIView>(_ constraint: SnapKit.ConstraintItem? = nil,
+                                      offset: CGFloat = 0) -> T {
+        sCenterX = offset
         sxConstraint = constraint
         return self as! T
     }
-    
-    func snpCenterY<T: UIView>(_ centerY: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
-        sCenterY = centerY
+        
+    public func snpCenterY<T: UIView>(_ constraint: SnapKit.ConstraintItem? = nil,
+                                      offset: CGFloat = 0) -> T {
+        sCenterY = offset
         syConstraint = constraint
         return self as! T
     }
@@ -320,7 +328,7 @@ public extension UIView {
     /// - Parameter color: 颜色
     /// - Returns: 返回本身
     @discardableResult
-    func lgBackgroundColor<T: UIView>(_ color: UIColor) -> T {
+    public func lgBackgroundColor<T: UIView>(_ color: UIColor) -> T {
         self.backgroundColor = color
         return self as! T
     }
