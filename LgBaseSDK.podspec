@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LgBaseSDK'
-  s.version          = '0.1.9'
+  s.version          = '0.1.10'
   s.summary          = 'A short description of LgBaseSDK.'
 
 # This description is used to generate tags and improve search results.
@@ -29,7 +29,8 @@ TODO: 基础的组件库.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
-
+  s.swift_version = '5.0'
+  
   s.source_files = 'LgBaseSDK/Classes/**/*'
   s.resource_bundles = {
     'LgBaseSDK' => ['LgBaseSDK/Exclude/LgBaseSDK.bundle']
