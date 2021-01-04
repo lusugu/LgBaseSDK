@@ -19,7 +19,7 @@ open class LGTableViewController: UITableViewController {
     }
 
     //MARK: - attribute
-    var baseViewModel: LGTableViewModel!
+    public var baseViewModel: LGTableViewModel!
     
     open override func viewDidLoad() {
         super.viewDidLoad()

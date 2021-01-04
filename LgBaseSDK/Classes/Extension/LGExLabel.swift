@@ -32,4 +32,13 @@ extension UILabel {
         text = value
         return self
     }
+    
+    /// 设置文本内容
+    /// - Parameter value: 内容
+    /// - Returns: 返回本身
+    @discardableResult
+    public func lgNumberLine(_ number: Int) -> Self {
+        numberOfLines = number
+        return self
+    }
 }

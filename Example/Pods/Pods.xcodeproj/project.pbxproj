@@ -10,6 +10,9 @@
 		003277B4A4664CB216727DFFF3978D39 /* NSSlider+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EC93235D8BA0B9BC81EE3AEC38085 /* NSSlider+Rx.swift */; };
 		00392D9FD7599A1C25CA22C1CBB4349B /* RxRelay-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A4A01FBF0642CEC01FA24DDE49EB03DE /* RxRelay-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		006EE5C6E74A9011A73AF644B6BB58EA /* KVORepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B279ECA32ABE324424CF3AAD609787 /* KVORepresentable.swift */; };
+		00B5570F25A3019300AD3B57 /* LGExButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B5570E25A3019300AD3B57 /* LGExButton.swift */; };
+		00B5579425A30C8F00AD3B57 /* LGExTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B5579325A30C8F00AD3B57 /* LGExTextView.swift */; };
+		00B557A125A30CC900AD3B57 /* LGExTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B557A025A30CC900AD3B57 /* LGExTextField.swift */; };
 		00B7B50E0D86D9939BA551C5916D02BD /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9493092934286B4DDAC07E0A789A56 /* ConstraintMaker.swift */; };
 		019EC11BD2E3F4491679EECA08C2EC0C /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E597B5F1C2E0D104CD8898F3E64ED8 /* Kingfisher.framework */; };
 		01AD204ED8B5DEEE04D8E805966175BF /* Debounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2787F9C98AED0D90D495CD27C988728A /* Debounce.swift */; };
@@ -627,6 +630,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00B5570E25A3019300AD3B57 /* LGExButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGExButton.swift; sourceTree = "<group>"; };
+		00B5579325A30C8F00AD3B57 /* LGExTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGExTextView.swift; sourceTree = "<group>"; };
+		00B557A025A30CC900AD3B57 /* LGExTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGExTextField.swift; sourceTree = "<group>"; };
 		00F4D5AEB2BA16AECEFBCF56DCBECA86 /* ControlEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ControlEvent.swift; path = RxCocoa/Traits/ControlEvent.swift; sourceTree = "<group>"; };
 		01169EF27286589A105AB7D63BA628EB /* LgBaseSDK.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LgBaseSDK.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		02255B0DDA5077E3AD381F23154A63A4 /* _RXDelegateProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _RXDelegateProxy.h; path = RxCocoa/Runtime/include/_RXDelegateProxy.h; sourceTree = "<group>"; };
@@ -1543,11 +1549,14 @@
 		6574DAFA7F46AB328D3C044258F2DE3F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B9DB1D76747400F467EF2C15D336EECC /* LGColor.swift */,
+				B223F2D3F49E2B31494E4802FE2C6209 /* LGExView.swift */,
+				D40DDF0CC3A223400D03F96224863931 /* LGExTableView.swift */,
+				00B5570E25A3019300AD3B57 /* LGExButton.swift */,
 				5C288C0E2B3AA13DBE61A34ACA007DB6 /* LGExImageView.swift */,
 				B7FD762FD9DB178F380393652B8370D9 /* LGExLabel.swift */,
-				D40DDF0CC3A223400D03F96224863931 /* LGExTableView.swift */,
-				B223F2D3F49E2B31494E4802FE2C6209 /* LGExView.swift */,
+				00B5579325A30C8F00AD3B57 /* LGExTextView.swift */,
+				00B557A025A30CC900AD3B57 /* LGExTextField.swift */,
+				B9DB1D76747400F467EF2C15D336EECC /* LGColor.swift */,
 				7B8EA79CAD4A928E0B6085EDCBAB19B6 /* LGFloat.swift */,
 				A6F8B07A31D677FF8CA39FEB32BC28CA /* LGFont.swift */,
 				12A742A613475A8F4AC6285284C3A95A /* LGImage.swift */,
@@ -2550,6 +2559,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDE9AAEB891E189214B17C43F5F3619F /* LgBaseSDK-dummy.m in Sources */,
+				00B557A125A30CC900AD3B57 /* LGExTextField.swift in Sources */,
 				0D07D6CFBB5189D57482F778BBDD37F7 /* LGBaseTableViewCell.swift in Sources */,
 				7E71858F579533EF1C78C82A20431A96 /* LGButton.swift in Sources */,
 				E713DFB99BBD243BEF2F212B756A3E3D /* LGColor.swift in Sources */,
@@ -2559,6 +2569,7 @@
 				3FEB9DB128FBE61BC8FDEC641DF53262 /* LGExTableView.swift in Sources */,
 				29B63301DCBFD72DC2D7017E9A915DDD /* LGExView.swift in Sources */,
 				AD05DECA57A00ABAFF2A2ACD1608C774 /* LGFloat.swift in Sources */,
+				00B5579425A30C8F00AD3B57 /* LGExTextView.swift in Sources */,
 				132C9079426EB0F11BDC184CAE7D6A16 /* LGFont.swift in Sources */,
 				14DBD35F41CEB670D288813C948CA0B1 /* LGImage.swift in Sources */,
 				9C8BEA1FF825266694C17601FE9797BA /* LGKeyFeildCell.swift in Sources */,
@@ -2572,6 +2583,7 @@
 				CD11A125C96A45EA9122A40957F08F96 /* LGTableViewController.swift in Sources */,
 				1B64408C93CA2EC767D7463994CDAB08 /* LGTableViewModel.swift in Sources */,
 				31A7FDA8220E0719C9BDDFBECAFA7901 /* LGView.swift in Sources */,
+				00B5570F25A3019300AD3B57 /* LGExButton.swift in Sources */,
 				60AE45F4687AF214D51BAA4A922D04CD /* LGViewController.swift in Sources */,
 				39D5215E5F5D7B5A7A94949C2362BF7B /* LGViewModel.swift in Sources */,
 				0F2714A39C68F088AFBF1BB68CC4AC8C /* SBCollectionViewFlowLayout.swift in Sources */,

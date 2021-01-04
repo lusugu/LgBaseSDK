@@ -268,60 +268,60 @@ public extension UIView {
     }
     
     //MARK: - 外部 数据添加
-    func snpLeft<T: UIView>(_ left: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
+    func snpLeft(_ left: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> Self {
         sLeft = left
         lConstraint = constraint
-        return self as! T
+        return self
     }
     
-    func snpRight<T: UIView>(_ right: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
+    func snpRight(_ right: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> Self {
         sRight = right
         rConstraint = constraint
-        return self as! T
+        return self
     }
     
-    func snpTop<T: UIView>(_ top: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
+    func snpTop(_ top: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> Self {
         sTop = top
         tConstraint = constraint
-        return self as! T
+        return self
     }
     
-    func snpBottom<T: UIView>(_ bottom: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
+    func snpBottom(_ bottom: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> Self {
         sBottom = bottom
         bConstraint = constraint
-        return self as! T
+        return self
     }
     
-    func snpWidth<T: UIView>(_ width: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
+    func snpWidth(_ width: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> Self {
         sWidth = width
         wConstraint = constraint
-        return self as! T
+        return self
     }
     
-    func snpHeight<T: UIView>(_ height: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
+    func snpHeight(_ height: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> Self {
         sHeight = height
         hConstraint = constraint
-        return self as! T
+        return self
     }
     
-    func snpCenterX<T: UIView>(_ centerX: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
+    func snpCenterX(_ centerX: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> Self {
         sCenterX = centerX
         sxConstraint = constraint
-        return self as! T
+        return self
     }
     
-    func snpCenterY<T: UIView>(_ centerY: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> T {
+    func snpCenterY(_ centerY: CGFloat, constraint: SnapKit.ConstraintItem? = nil) -> Self {
         sCenterY = centerY
         syConstraint = constraint
-        return self as! T
+        return self
     }
     
     /// 背景颜色
     /// - Parameter color: 颜色
     /// - Returns: 返回本身
     @discardableResult
-    func lgBackgroundColor<T: UIView>(_ color: UIColor) -> T {
-        self.backgroundColor = color
-        return self as! T
+    func lgBackgroundColor(_ color: UIColor) -> Self {
+        backgroundColor = color
+        return self
     }
 }
