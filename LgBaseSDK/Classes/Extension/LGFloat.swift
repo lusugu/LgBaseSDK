@@ -7,15 +7,25 @@
 
 import UIKit
 
+private func iPhonex() -> Bool {
+    var iPhoneX = false
+    if #available(iOS 11.0, *) {
+        if let window = UIApplication.shared.windows.first, window.safeAreaInsets.bottom > 0 {
+            iPhoneX = true
+        }
+    }
+    return iPhoneX
+}
+
 extension Int {
     public var size: CGFloat {
-        return CGFloat(self) * scale
+        return CGFloat(self) * CGFloat.screen.rate
     }
 }
 
 extension Double {
     public var size: CGFloat {
-        return CGFloat(self) * scale
+        return CGFloat(self) * CGFloat.screen.rate
     }
 }
 
@@ -27,6 +37,14 @@ public struct Screen {
     public var height: CGFloat
     /// 比例
     public var rate: CGFloat
+    /// tabbar height
+    public var tabbarHeight: CGFloat
+    /// 状态栏高度
+    public var statusHeight: CGFloat
+    /// navBar 高度
+    public var navBarHeight: CGFloat
+    /// top 高度
+    public var statusNavHeight: CGFloat
 }
 
 //MARK: - safe
@@ -42,15 +60,35 @@ public struct Safe {
 }
 
 extension CGFloat {
-    //MARK: - 对外方法和属性
+    //MARK: - 对外方法和属性    
     public static var screen: Screen = Screen(width: sw,
                                               height: sh,
-                                              rate: scale)
+                                              rate: sw / 375.0,
+                                              tabbarHeight: tabbarHeight,
+                                              statusHeight: statusHeight,
+                                              navBarHeight: navBarHeight,
+                                              statusNavHeight: statusNavHeight)
     /// safeareaInsets 头部刘海高度
     public static var safe: Safe = Safe(top: sTop,
                                         bottom: sBottom,
                                         left: sLeft,
                                         right: sRight)
+    
+    private static var tabbarHeight: CGFloat {
+        return iPhonex() ? 49.0 + 34.0 : 49.0
+    }
+    
+    private static var statusHeight: CGFloat {
+        return iPhonex() ? 44.0 : 20.0
+    }
+    
+    private static var navBarHeight: CGFloat {
+        return 44
+    }
+    
+    private static var statusNavHeight: CGFloat {
+        return statusHeight + navBarHeight
+    }
     
     private static var sw: CGFloat {
         return UIScreen.main.bounds.size.width

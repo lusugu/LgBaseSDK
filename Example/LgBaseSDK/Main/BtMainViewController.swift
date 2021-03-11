@@ -43,17 +43,15 @@ class BtMainViewController: LGViewController {
         btn3.setBackgroundColor(color: .orange, state: .selected)
         btn3.setBackgroundColor(color: .lightGray, state: .normal)
         btn3.setImageColor(image: UIImage(named: "icon"), state: .normal)
+        btn3.snp.makeConstraints { (make) in
+            make.left.right.bottom.top.equalTo(10)
+        }
         self.view.addSubview(btn3)
         
         let btn4: LGButton = LGButton(type: .bottom)
         btn4.setTitle(title: "12", state: .normal)
         btn4.setImageColor(image: UIImage(named: "icon"), state: .normal)
         self.view.addSubview(btn4)
-        btn4.snpLeft(100.size)
-            .snpTop(400.size)
-            .snpWidth(100.size)
-            .snpHeight(100.size)
-            .drawConstraints()
         btn4.backgroundColor = .yellow
         
         btn2.rx.controlEvent(.touchUpInside).subscribe { (e) in
@@ -64,6 +62,6 @@ class BtMainViewController: LGViewController {
             btn3.isSelected = !btn3.isSelected
         }
         
-        print(scale)
+        print(CGFloat.screen.rate)
     }
 }
