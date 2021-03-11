@@ -8,20 +8,14 @@
 import UIKit
 
 extension Int {
-    public var cWidth: CGFloat {
-        if CGFloat.screen.width <= 375.0 {
-            return CGFloat(self)
-        }
-        return CGFloat(self) * CGFloat.screen.rate
+    public var size: CGFloat {
+        return CGFloat(self) * scale
     }
 }
 
 extension Double {
-    public var cWidth: CGFloat {
-        if CGFloat.screen.width <= 375.0 {
-            return CGFloat(self)
-        }
-        return CGFloat(self) * CGFloat.screen.rate
+    public var size: CGFloat {
+        return CGFloat(self) * scale
     }
 }
 
@@ -51,7 +45,7 @@ extension CGFloat {
     //MARK: - 对外方法和属性
     public static var screen: Screen = Screen(width: sw,
                                               height: sh,
-                                              rate: sw / 375.0)
+                                              rate: scale)
     /// safeareaInsets 头部刘海高度
     public static var safe: Safe = Safe(top: sTop,
                                         bottom: sBottom,
