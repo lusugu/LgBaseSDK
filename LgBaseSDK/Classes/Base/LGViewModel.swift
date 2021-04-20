@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 open class LGViewModel: NSObject {
+    
+    public let disposedBag: DisposeBag = DisposeBag()
+
     deinit {
         print("=====================================================================")
         print(" \(NSStringFromClass(self.classForCoder)) deinit")
