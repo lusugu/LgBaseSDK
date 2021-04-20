@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		003277B4A4664CB216727DFFF3978D39 /* NSSlider+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EC93235D8BA0B9BC81EE3AEC38085 /* NSSlider+Rx.swift */; };
+		0035469225F865C000864183 /* LGExFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0035469125F865C000864183 /* LGExFrame.swift */; };
 		00392D9FD7599A1C25CA22C1CBB4349B /* RxRelay-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A4A01FBF0642CEC01FA24DDE49EB03DE /* RxRelay-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		006EE5C6E74A9011A73AF644B6BB58EA /* KVORepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B279ECA32ABE324424CF3AAD609787 /* KVORepresentable.swift */; };
 		00B5570F25A3019300AD3B57 /* LGExButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B5570E25A3019300AD3B57 /* LGExButton.swift */; };
@@ -632,6 +633,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0035469125F865C000864183 /* LGExFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGExFrame.swift; sourceTree = "<group>"; };
 		00B5570E25A3019300AD3B57 /* LGExButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGExButton.swift; sourceTree = "<group>"; };
 		00B5579325A30C8F00AD3B57 /* LGExTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGExTextView.swift; sourceTree = "<group>"; };
 		00B557A025A30CC900AD3B57 /* LGExTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGExTextField.swift; sourceTree = "<group>"; };
@@ -1564,6 +1566,7 @@
 				7B8EA79CAD4A928E0B6085EDCBAB19B6 /* LGFloat.swift */,
 				A6F8B07A31D677FF8CA39FEB32BC28CA /* LGFont.swift */,
 				12A742A613475A8F4AC6285284C3A95A /* LGImage.swift */,
+				0035469125F865C000864183 /* LGExFrame.swift */,
 			);
 			name = Extension;
 			path = LgBaseSDK/Classes/Extension;
@@ -2591,6 +2594,7 @@
 				1B64408C93CA2EC767D7463994CDAB08 /* LGTableViewModel.swift in Sources */,
 				31A7FDA8220E0719C9BDDFBECAFA7901 /* LGView.swift in Sources */,
 				00B5570F25A3019300AD3B57 /* LGExButton.swift in Sources */,
+				0035469225F865C000864183 /* LGExFrame.swift in Sources */,
 				60AE45F4687AF214D51BAA4A922D04CD /* LGViewController.swift in Sources */,
 				39D5215E5F5D7B5A7A94949C2362BF7B /* LGViewModel.swift in Sources */,
 				0F2714A39C68F088AFBF1BB68CC4AC8C /* SBCollectionViewFlowLayout.swift in Sources */,
