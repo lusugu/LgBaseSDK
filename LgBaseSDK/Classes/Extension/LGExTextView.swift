@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UITextView {
+public extension UITextView {
     
     /// 设置文本颜色
     /// - Parameter color: 颜色

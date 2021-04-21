@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIColor {
+public extension UIColor {
     /// assets 颜色处理 适配暗黑模式常用
     /// - Parameters:
     ///   - name: color在assets中的名字

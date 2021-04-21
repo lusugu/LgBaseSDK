@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UILabel {
+public extension UILabel {
     /// 字体大小
     @discardableResult
     public func lgFontSize(_ size: CGFloat) -> Self {

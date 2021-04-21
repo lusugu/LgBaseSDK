@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIButton {
+public extension UIButton {
     
     /// 设置文本颜色
     /// - Parameter color: 颜色

@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIFont {
+public extension UIFont {
     static public func font(_ size: CGFloat) -> UIFont {
         if CGFloat.screen.width <= 375.0 {
             return UIFont.systemFont(ofSize:size)

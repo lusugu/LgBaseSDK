@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension CGRect {
-    public static func frame(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) -> CGRect {
+public extension CGRect {
+    static func frame(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) -> CGRect {
         return CGRect(x: x * CGFloat.screen.rate,
                       y: y * CGFloat.screen.rate,
                       width: width * CGFloat.screen.rate,

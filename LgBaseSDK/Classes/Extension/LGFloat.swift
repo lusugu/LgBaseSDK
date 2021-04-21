@@ -17,13 +17,13 @@ private func iPhonex() -> Bool {
     return iPhoneX
 }
 
-extension Int {
+public extension Int {
     public var size: CGFloat {
         return CGFloat(self) * CGFloat.screen.rate
     }
 }
 
-extension Double {
+public extension Double {
     public var size: CGFloat {
         return CGFloat(self) * CGFloat.screen.rate
     }

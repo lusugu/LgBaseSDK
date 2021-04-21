@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
     //MARK: - 创建一个颜色的图片UIImage
     /// 创建一个纯颜色的图片UIImage
     /// - Parameters:

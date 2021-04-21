@@ -7,13 +7,11 @@
 
 import UIKit
 
-extension UITableView {
+public extension UITableView {
     @objc public class func `default`() -> UITableView {
         let tableView = UITableView()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50
         return tableView
     }
-    
-    
 }

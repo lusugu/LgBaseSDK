@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UITextField {
+public extension UITextField {
     /// 设置文本颜色
     /// - Parameter color: 颜色
     /// - Returns: 返回本身
