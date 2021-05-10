@@ -7,89 +7,54 @@
 
 import UIKit
 
-private func iPhonex() -> Bool {
-    var iPhoneX = false
-    if #available(iOS 11.0, *) {
-        if let window = UIApplication.shared.windows.first, window.safeAreaInsets.bottom > 0 {
-            iPhoneX = true
-        }
-    }
-    return iPhoneX
-}
-
+//MARK: - 屏幕比例
 public extension Int {
-    public var size: CGFloat {
+    var rate: CGFloat {
         return CGFloat(self) * CGFloat.screen.rate
     }
 }
 
+//MARK: - 屏幕比例
 public extension Double {
-    public var size: CGFloat {
+    var rate: CGFloat {
         return CGFloat(self) * CGFloat.screen.rate
     }
-}
-
-//MARK: - 尺寸
-public struct Screen {
-    /// 屏幕宽度
-    public var width: CGFloat
-    /// 屏幕高度
-    public var height: CGFloat
-    /// 比例
-    public var rate: CGFloat
-    /// tabbar height
-    public var tabbarHeight: CGFloat
-    /// 状态栏高度
-    public var statusHeight: CGFloat
-    /// navBar 高度
-    public var navBarHeight: CGFloat
-    /// top 高度
-    public var statusNavHeight: CGFloat
-}
-
-//MARK: - safe
-public struct Safe {
-    /// safeareaInsets 头部刘海高度
-    public var top: CGFloat
-    /// 底部
-    public var bottom: CGFloat
-    /// 左边
-    public var left: CGFloat
-    /// 右边
-    public var right: CGFloat
 }
 
 extension CGFloat {
-    //MARK: - 对外方法和属性    
+    //MARK: - 对外方法和属性
+    /// screen width
+    public static var width: CGFloat = screen.width
+    /// screen height
+    public static var height: CGFloat = screen.height
+    /// screen rate
+    public static var rate: CGFloat = screen.rate
+
+    /// screen safe top
+    public static var safe_top: CGFloat = safe.top
+    /// screen safe left
+    public static var safe_left: CGFloat = safe.left
+    /// screen safe right
+    public static var safe_right: CGFloat = safe.right
+    /// screen safe bottom
+    public static var safe_bottom: CGFloat = safe.bottom
+    
+    //MARK: - 布局常用
+    public static var safeAreaTopHeight: CGFloat = safe.top + 44
+    public static var safeAreaBottomHeight: CGFloat = safe.bottom
+    public static var safeAreaStateBarHeight: CGFloat = safe.top + 20
+    public static var navBtnTop: CGFloat = safe.top
+
+    
     public static var screen: Screen = Screen(width: sw,
                                               height: sh,
-                                              rate: sw / 375.0,
-                                              tabbarHeight: tabbarHeight,
-                                              statusHeight: statusHeight,
-                                              navBarHeight: navBarHeight,
-                                              statusNavHeight: statusNavHeight)
+                                              rate: sw / 375.0)
     /// safeareaInsets 头部刘海高度
     public static var safe: Safe = Safe(top: sTop,
                                         bottom: sBottom,
                                         left: sLeft,
                                         right: sRight)
-    
-    private static var tabbarHeight: CGFloat {
-        return iPhonex() ? 49.0 + 34.0 : 49.0
-    }
-    
-    private static var statusHeight: CGFloat {
-        return iPhonex() ? 44.0 : 20.0
-    }
-    
-    private static var navBarHeight: CGFloat {
-        return 44
-    }
-    
-    private static var statusNavHeight: CGFloat {
-        return statusHeight + navBarHeight
-    }
-    
+        
     private static var sw: CGFloat {
         return UIScreen.main.bounds.size.width
     }
@@ -139,3 +104,24 @@ extension CGFloat {
     }()
 }
 
+//MARK: - 尺寸
+public struct Screen {
+    /// 屏幕宽度
+    public var width: CGFloat
+    /// 屏幕高度
+    public var height: CGFloat
+    /// 比例
+    public var rate: CGFloat
+}
+
+//MARK: - safe
+public struct Safe {
+    /// safeareaInsets 头部刘海高度
+    public var top: CGFloat
+    /// 底部
+    public var bottom: CGFloat
+    /// 左边
+    public var left: CGFloat
+    /// 右边
+    public var right: CGFloat
+}

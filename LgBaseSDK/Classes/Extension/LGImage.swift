@@ -14,7 +14,7 @@ public extension UIImage {
     ///   - rgb: 颜色色值
     ///   - size: 图片大小
     /// - Returns: 图片对象
-    public func color(rgb: UInt32, size: CGSize = CGSize(width: 10, height: 10)) -> UIImage? {
+    func color(rgb: UInt32, size: CGSize = CGSize(width: 10, height: 10)) -> UIImage? {
         let rect = CGRect(origin: CGPoint.zero, size: size)
         let co = UIColor(rgb: rgb)
         UIGraphicsBeginImageContext(size)
@@ -33,7 +33,7 @@ public extension UIImage {
     ///   - rgb: 颜色对象
     ///   - size: 图片大小
     /// - Returns: 图片对象
-    public func color(color: UIColor, size: CGSize = CGSize(width: 10, height: 10)) -> UIImage? {
+    func color(color: UIColor, size: CGSize = CGSize(width: 10, height: 10)) -> UIImage? {
         let rect = CGRect(origin: CGPoint.zero, size: size)
         UIGraphicsBeginImageContext(size)
         defer {

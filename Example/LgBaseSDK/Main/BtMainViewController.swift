@@ -14,9 +14,9 @@ class BtMainViewController: LGViewController {
         super.viewDidLoad()
                 
         let l = UILabel()
-            .lgFontSize(12)
-        l.lgText("上午安抚")
-        l.lgTextColor(.red)
+            .setFont(.font(12))
+        l.setText("上午安抚")
+        l.setTextColor(.red)
         l.frame = CGRect(x: 100, y: 60, width: 150, height: 50)
         view.addSubview(l)
         
@@ -43,10 +43,10 @@ class BtMainViewController: LGViewController {
         btn3.setBackgroundColor(color: .orange, state: .selected)
         btn3.setBackgroundColor(color: .lightGray, state: .normal)
         btn3.setImageColor(image: UIImage(named: "icon"), state: .normal)
+        self.view.addSubview(btn3)
         btn3.snp.makeConstraints { (make) in
             make.left.right.bottom.top.equalTo(10)
         }
-        self.view.addSubview(btn3)
         
         let btn4: LGButton = LGButton(type: .bottom)
         btn4.setTitle(title: "12", state: .normal)
@@ -63,5 +63,10 @@ class BtMainViewController: LGViewController {
         }
         
         print(CGFloat.screen.rate)
+        
+        print(CGFloat.safeAreaTopHeight)
+        print(CGFloat.safeAreaBottomHeight)
+        print(CGFloat.safeAreaStateBarHeight)
+        print(CGFloat.navBtnTop)
     }
 }

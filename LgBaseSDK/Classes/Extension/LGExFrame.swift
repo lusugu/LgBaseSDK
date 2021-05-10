@@ -9,9 +9,9 @@ import Foundation
 
 public extension CGRect {
     static func frame(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) -> CGRect {
-        return CGRect(x: x * CGFloat.screen.rate,
-                      y: y * CGFloat.screen.rate,
-                      width: width * CGFloat.screen.rate,
-                      height: height * CGFloat.screen.rate)
+        return CGRect(x: x * CGFloat.rate,
+                      y: y * CGFloat.rate,
+                      width: width * CGFloat.rate,
+                      height: height * CGFloat.rate)
     }
 }

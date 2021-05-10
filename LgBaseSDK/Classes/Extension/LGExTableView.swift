@@ -8,10 +8,14 @@
 import UIKit
 
 public extension UITableView {
-    @objc public class func `default`() -> UITableView {
-        let tableView = UITableView()
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 50
-        return tableView
+
+    convenience init(rowHeight: CGFloat = 50,
+                     backgroundColor: UIColor = UIColor(rgb: 0xF7F7F7)) {
+        self.init()
+        
+        self.rowHeight = UITableView.automaticDimension
+        estimatedRowHeight = rowHeight
+        separatorStyle = .none
+        self.backgroundColor = backgroundColor
     }
 }

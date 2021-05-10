@@ -9,11 +9,18 @@ import UIKit
 
 public extension UITextView {
     
+    convenience init(text: String = "",
+                     color: UIColor = .black) {
+        self.init()
+        self.setText(text)
+            .setTextColor(color)
+    }
+    
     /// 设置文本颜色
     /// - Parameter color: 颜色
     /// - Returns: 返回本身
     @discardableResult
-    public func lgTextColor(_ color: UIColor) -> Self {
+    func setTextColor(_ color: UIColor) -> Self {
         textColor = color
         return self
     }
@@ -22,7 +29,7 @@ public extension UITextView {
     /// - Parameter value: 内容
     /// - Returns: 返回本身
     @discardableResult
-    public func lgText(_ value: String) -> Self {
+    func setText(_ value: String) -> Self {
         text = value
         return self
     }

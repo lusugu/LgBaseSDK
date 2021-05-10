@@ -12,30 +12,36 @@ import SnapKit
     @objc open func setUpConstraints() {}
     @objc open func setUpViews() {}
     @objc open func viewEvent() {}
-}
-
-@objc extension UIViewController {
-    @objc open func setUpConstraints() {}
-    @objc open func setUpViews() {}
-    @objc open func viewEvent() {}
-}
-
-public extension UIView {
+    
+    convenience init(_ bgColor: UIColor) {
+        self.init()
+        
+        backgroundColor = bgColor
+    }
+    
     /// 背景颜色
     /// - Parameter color: 颜色
     /// - Returns: 返回本身
     @discardableResult
-    func lgBackgroundColor(_ color: UIColor) -> Self {
+    func setBackgroundColor(_ color: UIColor) -> Self {
         backgroundColor = color
         return self
     }
     
     //MARK: - 圆角
     /// 有圆角就不能设置阴影
-    func viewBorderRadius(radius: CGFloat, width: CGFloat = 0.5, color: UIColor = .clear) {
+    @discardableResult
+    func viewBorderRadius(radius: CGFloat, width: CGFloat = 0.5, color: UIColor = .clear) -> Self {
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
         self.layer.borderWidth = width
         self.layer.borderColor = color.cgColor
+        return self
     }
+}
+
+@objc extension UIViewController {
+    @objc open func setUpConstraints() {}
+    @objc open func setUpViews() {}
+    @objc open func viewEvent() {}
 }

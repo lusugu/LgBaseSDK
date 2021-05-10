@@ -8,11 +8,20 @@
 import UIKit
 
 public extension UITextField {
+    
+    convenience init(text: String = "",
+         textColor: UIColor = .black) {
+        self.init()
+        
+        setText(text)
+        setTextColor(textColor)
+    }
+    
     /// 设置文本颜色
     /// - Parameter color: 颜色
     /// - Returns: 返回本身
     @discardableResult
-    public func lgTextColor(_ color: UIColor) -> Self {
+    func setTextColor(_ color: UIColor) -> Self {
         textColor = color
         return self
     }
@@ -21,7 +30,7 @@ public extension UITextField {
     /// - Parameter value: 内容
     /// - Returns: 返回本身
     @discardableResult
-    public func lgText(_ value: String) -> Self {
+    func setText(_ value: String) -> Self {
         text = value
         return self
     }

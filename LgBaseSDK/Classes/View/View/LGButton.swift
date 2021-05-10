@@ -59,7 +59,7 @@ public class LGButton: UIControl {
     
     func setUpView() {
         tLabel = UILabel()
-            .lgFontSize(titleSize)
+            .setFont(.font(titleSize))
         addSubview(tLabel)
         
         iImageView = UIImageView()

@@ -9,11 +9,22 @@ import UIKit
 
 public extension UIButton {
     
+    convenience init(text: String = "",
+                     textColor: UIColor = .white,
+                     textFont: UIFont = .font(16)) {
+        self.init()
+        
+        setTextColor(textColor)
+        setText(text)
+        setTextFont(textFont)
+    }
+    
     /// 设置文本颜色
     /// - Parameter color: 颜色
     /// - Returns: 返回本身
     @discardableResult
-    public func lgTextColor(_ color: UIColor, state: UIControl.State = .normal) -> Self {
+    func setTextColor(_ color: UIColor,
+                      state: UIControl.State = .normal) -> Self {
         setTitleColor(color, for: state)
         return self
     }
@@ -22,26 +33,28 @@ public extension UIButton {
     /// - Parameter value: 内容
     /// - Returns: 返回本身
     @discardableResult
-    public func lgText(_ value: String, state: UIControl.State = .normal) -> Self {
+    func setText(_ value: String,
+                 state: UIControl.State = .normal) -> Self {
         setTitle(value, for: state)
         return self
     }
     
     @discardableResult
-    public func lgBackgroundImage(_ image: UIImage, state: UIControl.State = .normal) -> Self {
+    func setBackgroundImage(_ image: UIImage,
+                           state: UIControl.State = .normal) -> Self {
         setBackgroundImage(image, for: state)
         return self
     }
     
     @discardableResult
-    public func lgImage(_ image: UIImage, state: UIControl.State = .normal) -> Self {
+    func setImage(_ image: UIImage, state: UIControl.State = .normal) -> Self {
         setImage(image, for: state)
         return self
     }
     
     @discardableResult
-    public func lgTextFont(_ size: CGFloat) -> Self {
-        titleLabel?.font = .font(size)
+    func setTextFont(_ font: UIFont) -> Self {
+        titleLabel?.font = font
         return self
     }
 }

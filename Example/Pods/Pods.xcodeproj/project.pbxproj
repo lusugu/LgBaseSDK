@@ -17,6 +17,7 @@
 		00B7B50E0D86D9939BA551C5916D02BD /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9493092934286B4DDAC07E0A789A56 /* ConstraintMaker.swift */; };
 		00C0154C25EB758900BE59F1 /* RegexHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C0154B25EB758900BE59F1 /* RegexHelper.swift */; };
 		00C0155925EB77C300BE59F1 /* RegexUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C0155825EB77C300BE59F1 /* RegexUtils.swift */; };
+		00E274A72649238A00BAD895 /* LGWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E274A62649238A00BAD895 /* LGWireframe.swift */; };
 		019EC11BD2E3F4491679EECA08C2EC0C /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E597B5F1C2E0D104CD8898F3E64ED8 /* Kingfisher.framework */; };
 		01AD204ED8B5DEEE04D8E805966175BF /* Debounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2787F9C98AED0D90D495CD27C988728A /* Debounce.swift */; };
 		021876D64EB78E95EDF7ED61159D250A /* RxCollectionViewDataSourcePrefetchingProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC02D2CAAC3ED5CBE35E26D9CB946EA /* RxCollectionViewDataSourcePrefetchingProxy.swift */; };
@@ -639,6 +640,7 @@
 		00B557A025A30CC900AD3B57 /* LGExTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGExTextField.swift; sourceTree = "<group>"; };
 		00C0154B25EB758900BE59F1 /* RegexHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexHelper.swift; sourceTree = "<group>"; };
 		00C0155825EB77C300BE59F1 /* RegexUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexUtils.swift; sourceTree = "<group>"; };
+		00E274A62649238A00BAD895 /* LGWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGWireframe.swift; sourceTree = "<group>"; };
 		00F4D5AEB2BA16AECEFBCF56DCBECA86 /* ControlEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ControlEvent.swift; path = RxCocoa/Traits/ControlEvent.swift; sourceTree = "<group>"; };
 		01169EF27286589A105AB7D63BA628EB /* LgBaseSDK.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LgBaseSDK.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		02255B0DDA5077E3AD381F23154A63A4 /* _RXDelegateProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _RXDelegateProxy.h; path = RxCocoa/Runtime/include/_RXDelegateProxy.h; sourceTree = "<group>"; };
@@ -1567,6 +1569,7 @@
 				A6F8B07A31D677FF8CA39FEB32BC28CA /* LGFont.swift */,
 				12A742A613475A8F4AC6285284C3A95A /* LGImage.swift */,
 				0035469125F865C000864183 /* LGExFrame.swift */,
+				00E274A62649238A00BAD895 /* LGWireframe.swift */,
 			);
 			name = Extension;
 			path = LgBaseSDK/Classes/Extension;
@@ -2568,6 +2571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDE9AAEB891E189214B17C43F5F3619F /* LgBaseSDK-dummy.m in Sources */,
+				00E274A72649238A00BAD895 /* LGWireframe.swift in Sources */,
 				00B557A125A30CC900AD3B57 /* LGExTextField.swift in Sources */,
 				00C0154C25EB758900BE59F1 /* RegexHelper.swift in Sources */,
 				0D07D6CFBB5189D57482F778BBDD37F7 /* LGBaseTableViewCell.swift in Sources */,

@@ -8,10 +8,21 @@
 import UIKit
 
 public extension UILabel {
+    
+    convenience init(text: String = "",
+                     font: UIFont = .font(15),
+                     textColor: UIColor = .black) {
+        self.init()
+        
+        setTextColor(textColor)
+        setText(text)
+        setFont(font)
+    }
+    
     /// 字体大小
     @discardableResult
-    public func lgFontSize(_ size: CGFloat) -> Self {
-        font = .systemFont(ofSize: size)
+    func setFont(_ font: UIFont) -> Self {
+        self.font = font
         return self
     }
     
@@ -19,7 +30,7 @@ public extension UILabel {
     /// - Parameter color: 颜色
     /// - Returns: 返回本身
     @discardableResult
-    public func lgTextColor(_ color: UIColor) -> Self {
+    func setTextColor(_ color: UIColor) -> Self {
         textColor = color
         return self
     }
@@ -28,7 +39,7 @@ public extension UILabel {
     /// - Parameter value: 内容
     /// - Returns: 返回本身
     @discardableResult
-    public func lgText(_ value: String) -> Self {
+    func setText(_ value: String) -> Self {
         text = value
         return self
     }
@@ -37,7 +48,7 @@ public extension UILabel {
     /// - Parameter value: 内容
     /// - Returns: 返回本身
     @discardableResult
-    public func lgNumberLine(_ number: Int) -> Self {
+    func setNumberLine(_ number: Int) -> Self {
         numberOfLines = number
         return self
     }
