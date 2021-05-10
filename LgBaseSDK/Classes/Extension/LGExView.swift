@@ -16,7 +16,7 @@ import SnapKit
     convenience init(_ bgColor: UIColor) {
         self.init()
         
-        backgroundColor = bgColor
+        setBackgroundColor(bgColor)
     }
     
     /// 背景颜色
