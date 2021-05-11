@@ -6,18 +6,21 @@
 //
 
 import UIKit
+import RxSwift
 
 open class LGViewController: UIViewController {
-
-    //MARK: - 初始化方法
-    public required init(viewModel: LGViewModel) {
-        super.init(nibName: nil, bundle: nil)
-        self.baseViewModel = viewModel
-    }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    public let disposedBag: DisposeBag = DisposeBag()
+
+//    //MARK: - 初始化方法
+//    public required init(viewModel: LGViewModel) {
+//        super.init(nibName: nil, bundle: nil)
+//        self.baseViewModel = viewModel
+//    }
+//
+//    required public init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
 
     open override func viewDidLoad() {
         super.viewDidLoad()

@@ -25,15 +25,9 @@ open class LGTabbarController: UITabBarController {
             var navs: [UINavigationController] = []
             for item in items {
                 var nav : UINavigationController?
-                var vc: UIViewController? = item.viewModel?.toViewController()
+                let vc: UIViewController? = item.vc
                 if let _ = vc {
                     nav = UINavigationController(rootViewController: vc!)
-                }
-                else {
-                    vc = item.tableViewModel?.toViewController()
-                    if let _ = vc {
-                        nav = UINavigationController(rootViewController: vc!)
-                    }
                 }
                 
                 if let _ = vc {
@@ -64,14 +58,12 @@ public struct TabbarItem {
     var title: String = ""
     var image: String = ""
     var imageSelect: String = ""
-    var viewModel: LGViewModel?
-    var tableViewModel: LGTableViewModel?
+    var vc: UIViewController?
     
-    public init(title: String, image: String, imageSelect: String, viewModel: LGViewModel? = nil , tableViewModel: LGTableViewModel? = nil) {
+    public init(title: String, image: String, imageSelect: String, vc: UIViewController? = nil) {
         self.title = title
         self.image = image
         self.imageSelect = imageSelect
-        self.viewModel = viewModel
-        self.tableViewModel = tableViewModel
+        self.vc = vc
     }
 }

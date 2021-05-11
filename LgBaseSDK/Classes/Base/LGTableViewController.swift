@@ -9,14 +9,14 @@ import UIKit
 
 open class LGTableViewController: UITableViewController {
     //MARK: - 初始化方法
-    public required init(viewModel: LGTableViewModel) {
-        super.init(nibName: nil, bundle: nil)
-        self.baseViewModel = viewModel
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    public required init(viewModel: LGTableViewModel) {
+//        super.init(nibName: nil, bundle: nil)
+//        self.baseViewModel = viewModel
+//    }
+//    
+//    required public init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
 
     //MARK: - attribute
     public var baseViewModel: LGTableViewModel!
