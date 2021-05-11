@@ -22,7 +22,7 @@ public extension UITableViewCell {
 open class LGTableViewCell: UITableViewCell {
     
     /// 是否需要箭头
-    public var isShowArrow: Bool = false {
+    open var isShowArrow: Bool = false {
         didSet {
             self.arrow.isHidden = !isShowSep
             
@@ -41,13 +41,13 @@ open class LGTableViewCell: UITableViewCell {
     }
     
     /// 是否需要分割线
-    public var isShowSep: Bool = true {
+    open var isShowSep: Bool = true {
         didSet {
             self.sepLine.isHidden = !isShowSep
         }
     }
 
-    public lazy var childView: UIView = {
+    open lazy var childView: UIView = {
         let v = UIView(frame: .zero)
         v.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(v)
@@ -96,7 +96,7 @@ open class LGTableViewCell: UITableViewCell {
         viewEvent()
     }
 
-    public override func setUpConstraints() {
+    open override func setUpConstraints() {
         super.setUpConstraints()
         
         childView.snp.remakeConstraints { (make) in
