@@ -16,14 +16,14 @@ import SnapKit
     convenience init(_ bgColor: UIColor) {
         self.init()
         
-        setBackgroundColor(bgColor)
+        setBgColor(bgColor)
     }
     
     /// 背景颜色
     /// - Parameter color: 颜色
     /// - Returns: 返回本身
     @discardableResult
-    func setBackgroundColor(_ color: UIColor) -> Self {
+    func setBgColor(_ color: UIColor) -> Self {
         backgroundColor = color
         return self
     }
