@@ -81,7 +81,7 @@ class SBCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
     func setup() {
         // 1、注册
-        self.register(SBCollectionReusableView.classForCoder(), forDecorationViewOfKind: SectionBackground)
+        self.register(SBCollectionReusableView.self, forDecorationViewOfKind: SectionBackground)
     }
     
     // MARK: -

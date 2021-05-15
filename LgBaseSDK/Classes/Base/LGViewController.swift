@@ -37,7 +37,7 @@ open class LGViewController: UIViewController {
         super.viewWillAppear(animated)
 
         print("=====================================================================")
-        print(" \(NSStringFromClass(self.classForCoder)) viewWillAppear ")
+        print(" \(Self.self) viewWillAppear ")
         print("=====================================================================")
     }
     

@@ -15,7 +15,7 @@ open class LGViewModel: NSObject {
 
     deinit {
         print("=====================================================================")
-        print(" \(NSStringFromClass(self.classForCoder)) deinit")
+        print(" \(Self.self) deinit")
         print("=====================================================================")
     }
     

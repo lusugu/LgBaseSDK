@@ -34,4 +34,22 @@ public extension UITextField {
         text = value
         return self
     }
+    
+    @discardableResult
+    func setFont(_ font: UIFont) -> Self {
+        self.font = font
+        return self
+    }
+    
+    @discardableResult
+    func setPlaceholder(placeholder: String) -> Self {
+        self.placeholder = placeholder
+        return self
+    }
+    
+    @discardableResult
+    func setAlignment(alignment: NSTextAlignment) -> Self {
+        textAlignment = alignment
+        return self
+    }
 }
