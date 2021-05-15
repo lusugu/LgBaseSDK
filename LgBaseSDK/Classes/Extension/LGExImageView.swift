@@ -19,7 +19,7 @@ public extension UIImageView {
     /// - Parameter img: 图片内容
     /// - Returns: 返回图片本体
     @discardableResult
-    func setImage(_ image: UIImage) -> Self {
+    func setImage(_ image: UIImage?) -> Self {
         self.image = image
         return self
     }
