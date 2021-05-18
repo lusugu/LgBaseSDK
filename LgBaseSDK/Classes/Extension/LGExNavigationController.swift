@@ -9,6 +9,8 @@ import UIKit
 
 extension UINavigationController {
     
+//    setNeedsStatusBarAppearanceUpdate 后回调preferredStatusBarStyle方法
+    
     open override var childForStatusBarHidden: UIViewController? {
         return self.topViewController
     }
@@ -16,5 +18,4 @@ extension UINavigationController {
     open override var childForStatusBarStyle: UIViewController? {
         return self.topViewController
     }
-    
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000A57F92653AD46001D0F4F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000A57F82653AD46001D0F4F /* FirstViewController.swift */; };
 		2423A8F55854C7314F0EF6AB /* Pods_LgBaseSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B3AB6D0F99F54C131A931EB /* Pods_LgBaseSDK_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		000A57F82653AD46001D0F4F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		199A376F74912B2AAEB614DF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		24CA9F2F2209FC37BC4EF281 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		288FA8417213E178E8CB5F21 /* LgBaseSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LgBaseSDK.podspec; path = ../LgBaseSDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -109,6 +111,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				000A57F82653AD46001D0F4F /* FirstViewController.swift */,
 			);
 			name = "Example for LgBaseSDK";
 			path = LgBaseSDK;
@@ -379,6 +382,7 @@
 				C73F34E82581082700093700 /* BtMineViewModel.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				C73F34E72581082700093700 /* BtMainViewModel.swift in Sources */,
+				000A57F92653AD46001D0F4F /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

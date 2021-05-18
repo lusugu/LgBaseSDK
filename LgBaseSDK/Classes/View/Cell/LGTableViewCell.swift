@@ -57,7 +57,7 @@ open class LGTableViewCell: UITableViewCell {
     //MARK: - 私有属性
     /// 箭头
     private lazy var arrow: UIImageView = {
-        let bundle = Bundle(path: (Bundle(path: Bundle(for: LGViewController.self).path(forResource: "LGKit", ofType: "bundle")!)?.path(forResource: "LGKit", ofType: "bundle"))!)       
+        let bundle = Bundle(path: (Bundle(path: Bundle(for: LGViewController.self).path(forResource: "LgBaseSDK", ofType: "bundle")!)?.path(forResource: "LgBaseSDK", ofType: "bundle"))!)
         let icon = bundle?.path(forResource: "arrow.png", ofType: nil)
         let img = UIImage(contentsOfFile: icon!)
         let image = UIImageView(image: img)
