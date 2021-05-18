@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00034F3926534F5F005EA344 /* LGExNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00034F3826534F5F005EA344 /* LGExNavigationController.swift */; };
 		003277B4A4664CB216727DFFF3978D39 /* NSSlider+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EC93235D8BA0B9BC81EE3AEC38085 /* NSSlider+Rx.swift */; };
 		0035469225F865C000864183 /* LGExFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0035469125F865C000864183 /* LGExFrame.swift */; };
 		00392D9FD7599A1C25CA22C1CBB4349B /* RxRelay-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A4A01FBF0642CEC01FA24DDE49EB03DE /* RxRelay-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -634,6 +635,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00034F3826534F5F005EA344 /* LGExNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGExNavigationController.swift; sourceTree = "<group>"; };
 		0035469125F865C000864183 /* LGExFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGExFrame.swift; sourceTree = "<group>"; };
 		00B5570E25A3019300AD3B57 /* LGExButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGExButton.swift; sourceTree = "<group>"; };
 		00B5579325A30C8F00AD3B57 /* LGExTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGExTextView.swift; sourceTree = "<group>"; };
@@ -1570,6 +1572,7 @@
 				12A742A613475A8F4AC6285284C3A95A /* LGImage.swift */,
 				0035469125F865C000864183 /* LGExFrame.swift */,
 				00E274A62649238A00BAD895 /* LGWireframe.swift */,
+				00034F3826534F5F005EA344 /* LGExNavigationController.swift */,
 			);
 			name = Extension;
 			path = LgBaseSDK/Classes/Extension;
@@ -2583,6 +2586,7 @@
 				3FEB9DB128FBE61BC8FDEC641DF53262 /* LGExTableView.swift in Sources */,
 				29B63301DCBFD72DC2D7017E9A915DDD /* LGExView.swift in Sources */,
 				AD05DECA57A00ABAFF2A2ACD1608C774 /* LGFloat.swift in Sources */,
+				00034F3926534F5F005EA344 /* LGExNavigationController.swift in Sources */,
 				00B5579425A30C8F00AD3B57 /* LGExTextView.swift in Sources */,
 				132C9079426EB0F11BDC184CAE7D6A16 /* LGFont.swift in Sources */,
 				14DBD35F41CEB670D288813C948CA0B1 /* LGImage.swift in Sources */,

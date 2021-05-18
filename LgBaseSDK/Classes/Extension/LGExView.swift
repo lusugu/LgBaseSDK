@@ -23,7 +23,7 @@ import SnapKit
     /// - Parameter color: 颜色
     /// - Returns: 返回本身
     @discardableResult
-    func setBgColor(_ color: UIColor) -> Self {
+    open func setBgColor(_ color: UIColor) -> Self {
         backgroundColor = color
         return self
     }
@@ -31,7 +31,7 @@ import SnapKit
     //MARK: - 圆角
     /// 有圆角就不能设置阴影
     @discardableResult
-    func viewBorderRadius(radius: CGFloat, width: CGFloat = 0.5, color: UIColor = .clear) -> Self {
+    open func viewBorderRadius(radius: CGFloat, width: CGFloat = 0.5, color: UIColor = .clear) -> Self {
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
         self.layer.borderWidth = width
