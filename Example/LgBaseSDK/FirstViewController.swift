@@ -17,9 +17,12 @@ class FirstViewController: LGViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = .blue
 
-        navBarBackgroundColor = .red
+//        navBarBackgroundColor = .red
         navBarTitleColor = .white
-        title = "测试2"
+        title = "测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2"
+        currentStatusBarStyle = .lightContent
+        titleColor = .white
+        setLeftBtn("返回", image: UIImage(named: "icon")!)
     }
     
 

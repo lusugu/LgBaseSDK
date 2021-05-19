@@ -71,37 +71,35 @@ open class LGViewController: UIViewController {
     
     //MARK: - 属性
     lazy var navLeftBtn: UIButton = {
-        let btn = UIButton()
+        let btn = UIButton(frame: CGRect(x: 0, y: CGFloat.safe_top, width: CGFloat.width / 4, height: 44))
         btn.addTarget(self, action: #selector(leftEvent), for: .touchUpInside)
-        btn.setTitle("返回", for: .normal)
-//        let b = Bundle(for: LGViewController.self)
-//        let bundlePath: String = b.path(forResource: "LgBaseSDK", ofType: "bundle")!
-//        let bundle = Bundle(path: bundlePath)!
-//        let icon = bundle.path(forResource: "back_b.png", ofType: nil)
-//        let img = UIImage(contentsOfFile: icon!)
-        
         let bundle = Bundle(path: (Bundle(path: Bundle(for: LGViewController.self).path(forResource: "LgBaseSDK", ofType: "bundle")!)?.path(forResource: "LgBaseSDK", ofType: "bundle"))!)
         let icon = bundle?.path(forResource: "back.png", ofType: nil)
         let img = UIImage(contentsOfFile: icon!)
-        
         btn.setImage(img!)
+        btn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         btn.titleLabel?.font = .font(15)
         navBarView.addSubview(btn)
+        btn.contentHorizontalAlignment = .left
+        btn.isHidden = true
         return btn
     }()
     lazy var navRightBtn: UIButton = {
-        let btn = UIButton()
+        let btn = UIButton(frame: CGRect(x: CGFloat.width - CGFloat.width / 4, y: CGFloat.safe_top, width: CGFloat.width / 4, height: 44))
         btn.addTarget(self, action: #selector(rightEvent), for: .touchUpInside)
+        btn.isHidden = true
+        btn.contentHorizontalAlignment = .right
+        btn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 15)
+        btn.titleLabel?.font = .font(15)
         navBarView.addSubview(btn)
         return btn
     }()
     lazy var navBarView: UIView = {
         let navBarView = UIView(frame: CGRect(x: 0, y: 0, width: CGFloat.width, height: CGFloat.safeAreaTopHeight))
-        navBarView.backgroundColor = .red
         view.addSubview(navBarView)
         return navBarView
     }()
-    lazy var navShadowView: UIView = {
+    lazy var navShadowLine: UIView = {
         let v = UIView(frame: CGRect(x: 0, y: CGFloat.safeAreaTopHeight - 0.5, width: CGFloat.width, height: 0.5))
         if #available(iOS 13.0, *) {
             v.backgroundColor = .systemGray5
@@ -113,14 +111,18 @@ open class LGViewController: UIViewController {
         return v
     }()
     lazy var headTitleLabel: UILabel = {
-        let l = UILabel(frame: CGRect(x: 60, y: CGFloat.safe_top, width: CGFloat.width - 120, height: 44))
+        let l = UILabel(frame: CGRect(x: CGFloat.width / 4, y: CGFloat.safe_top, width: CGFloat.width / 2, height: 44))
         l.textColor = titleColor
         l.font = .font(18)
         l.textAlignment = .center
         navBarView.addSubview(l)
         return l
     }()
-    var currentStatusBarStyle: UIStatusBarStyle = .default
+    public var currentStatusBarStyle: UIStatusBarStyle = .default {
+        didSet {
+            setNeedsStatusBarAppearanceUpdate()
+        }
+    }
     
     //MARK: - nav
     @objc open func leftEvent() {
@@ -151,19 +153,62 @@ open class LGViewController: UIViewController {
             navBarView.backgroundColor = navBarBackgroundColor
         }
     }
+    
+    /// 是否隐藏nav line
+    public var navBottomViewLineHidden: Bool = false {
+        didSet {
+            navShadowLine.isHidden = navBottomViewLineHidden
+        }
+    }
+    
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return self.currentStatusBarStyle
+    }
+}
+
+//MARK: - util
+extension LGViewController {
+    /// 计算字符串的长度
+    func calculateWidth(string: String, font: UIFont) -> CGFloat {
+        let attributeDic = [NSAttributedString.Key.font: font]
+        let size = (string as NSString).boundingRect(with: CGSize(width: Double(MAXFLOAT), height: 44.0), options: [.usesLineFragmentOrigin, .usesFontLeading, .truncatesLastVisibleLine], attributes: attributeDic, context: nil).size
+        return size.width + 20
+    }
+    
 }
 
 //MARK: - NAV BAR
-extension LGViewController {
+public extension LGViewController {
     
     func setUpNav() {
         // 如果不是nav的第一个视图控制器,则添加返回按钮
         if let childs = self.navigationController?.viewControllers {
             if self != childs[0] {
-                // 如果不是nav的第一个视图控制器,则添加返回按钮
-                self.navLeftBtn.frame = CGRect(x: 15, y: CGFloat.safe_top, width: 40, height: 40)
+                navLeftBtn.isHidden = false
             }
         }
         
+    }
+    
+    //MARK: - 左边按钮
+    func setLeftBtn(_ title: String = "",
+                    textColor: UIColor = .black,
+                    image: UIImage,
+                    state: UIControl.State = .normal) {
+        navLeftBtn.setTitle(title, for: state)
+        navLeftBtn.setTitleColor(textColor, for: state)
+        navLeftBtn.setImage(image, for: state)
+        navLeftBtn.isHidden = false
+    }
+    
+    //MARK: - 右边按钮
+    func setRightBtn(_ title: String = "",
+                    textColor: UIColor = .black,
+                    image: UIImage,
+                    state: UIControl.State = .normal) {
+        navRightBtn.setTitle(title, for: state)
+        navRightBtn.setTitleColor(textColor, for: state)
+        navRightBtn.setImage(image, for: state)
+        navRightBtn.isHidden = false
     }
 }
