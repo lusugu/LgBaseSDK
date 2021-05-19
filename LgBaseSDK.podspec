@@ -35,9 +35,9 @@ TODO: 基础的组件库.
   s.resource_bundles = {
     'LgBaseSDK' => ['LgBaseSDK/Exclude/LgBaseSDK.bundle']
   }
-  s.resource_bundles = {
-    'LgBaseSDK' => ['LgBaseSDK/Assets/*.png']
-  }
+#  s.resource_bundles = {
+#    'LgBaseSDK' => ['LgBaseSDK/Assets/*.png']
+#  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
