@@ -8,6 +8,19 @@
 import UIKit
 import RxSwift
 
+open class LGDeployData {
+    var titleColor: UIColor = .black
+    var backgroundColor: UIColor = .white
+    
+    /// 单例
+    class var shared: LGDeployData {
+        struct Static {
+            static let instance = LGDeployData()
+        }
+        return Static.instance
+    }
+}
+
 open class LGViewController: UIViewController {
     
     public let disposedBag: DisposeBag = DisposeBag()
@@ -96,6 +109,7 @@ open class LGViewController: UIViewController {
     }()
     lazy var navBarView: UIView = {
         let navBarView = UIView(frame: CGRect(x: 0, y: 0, width: CGFloat.width, height: CGFloat.safeAreaTopHeight))
+        navBarView.backgroundColor = LGDeployData.shared.backgroundColor
         view.addSubview(navBarView)
         return navBarView
     }()
@@ -112,7 +126,7 @@ open class LGViewController: UIViewController {
     }()
     lazy var headTitleLabel: UILabel = {
         let l = UILabel(frame: CGRect(x: CGFloat.width / 4, y: CGFloat.safe_top, width: CGFloat.width / 2, height: 44))
-        l.textColor = titleColor
+        l.textColor = LGDeployData.shared.titleColor
         l.font = .font(18)
         l.textAlignment = .center
         navBarView.addSubview(l)
