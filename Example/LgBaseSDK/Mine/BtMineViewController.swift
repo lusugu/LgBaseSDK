@@ -14,7 +14,6 @@ class BtMineViewController: LGViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navBarBarTintColor = .red
         
 //        let img = UIImageView()
 //        img.image = UIImage(named: "icon")

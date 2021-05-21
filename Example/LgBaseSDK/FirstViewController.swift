@@ -18,7 +18,6 @@ class FirstViewController: LGViewController {
         view.backgroundColor = .blue
 
 //        navBarBackgroundColor = .red
-        navBarTitleColor = .white
         title = "测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2测试2"
         currentStatusBarStyle = .lightContent
         titleColor = .white

@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 public extension UITableViewCell {
     class func withTableView(tableView: UITableView) -> Self {
@@ -20,6 +21,8 @@ public extension UITableViewCell {
 }
 
 open class LGTableViewCell: UITableViewCell {
+    
+    public let disposedBag: DisposeBag = DisposeBag()
     
     /// 是否需要箭头
     open var isShowArrow: Bool = false {

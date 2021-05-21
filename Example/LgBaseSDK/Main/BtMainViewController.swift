@@ -33,7 +33,6 @@ class BtMainViewController: LGViewController {
         }
         
         navBarBackgroundColor = .yellow
-        navBarTitleColor = .white
         title = "测试"
     }
     

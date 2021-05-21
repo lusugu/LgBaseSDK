@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class LGTableViewController: UITableViewController {
+open class LGTableViewController: LGViewController, UITableViewDelegate, UITableViewDataSource {
     //MARK: - 初始化方法
 //    public required init(viewModel: LGTableViewModel) {
 //        super.init(nibName: nil, bundle: nil)
@@ -18,8 +18,15 @@ open class LGTableViewController: UITableViewController {
 //        fatalError("init(coder:) has not been implemented")
 //    }
 
-    //MARK: - attribute
-    public var baseViewModel: LGTableViewModel!
+    public lazy var tableView: UITableView = {
+        let t = UITableView()
+        t.delegate = self
+        t.dataSource = self
+        t.estimatedRowHeight = UITableView.automaticDimension
+        t.rowHeight = 44
+        view.addSubview(t)
+        return t
+    }()
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +36,7 @@ open class LGTableViewController: UITableViewController {
         setUpViews()
         setUpConstraints()
         viewEvent()
+        tableViewEx()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -36,15 +44,22 @@ open class LGTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    func tableViewEx() {
+        
+    }
 
     // MARK: - Table view data source
-
-    open override func numberOfSections(in tableView: UITableView) -> Int {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    open func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    open override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }

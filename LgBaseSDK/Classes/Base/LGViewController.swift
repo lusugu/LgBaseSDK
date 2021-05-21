@@ -9,11 +9,11 @@ import UIKit
 import RxSwift
 
 open class LGDeployData {
-    var titleColor: UIColor = .black
-    var backgroundColor: UIColor = .white
+    public var titleColor: UIColor = .black
+    public var backgroundColor: UIColor = .white
     
     /// 单例
-    class var shared: LGDeployData {
+    public class var shared: LGDeployData {
         struct Static {
             static let instance = LGDeployData()
         }

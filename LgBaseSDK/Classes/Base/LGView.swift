@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import RxSwift
 
 open class LGView: UIView {
+
+    public let disposedBag: DisposeBag = DisposeBag()
 
     override public init(frame: CGRect) {
         super.init(frame: frame)
