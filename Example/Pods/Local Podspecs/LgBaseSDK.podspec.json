@@ -1,6 +1,6 @@
 {
   "name": "LgBaseSDK",
-  "version": "0.1.7",
+  "version": "0.3.11",
   "summary": "A short description of LgBaseSDK.",
   "description": "TODO: 基础的组件库.",
   "homepage": "https://github.com/lusugu/LgBaseSDK",
@@ -13,11 +13,12 @@
   },
   "source": {
     "git": "https://github.com/lusugu/LgBaseSDK.git",
-    "tag": "0.1.7"
+    "tag": "0.3.11"
   },
   "platforms": {
     "ios": "10.0"
   },
+  "swift_versions": "5.0",
   "source_files": "LgBaseSDK/Classes/**/*",
   "resource_bundles": {
     "LgBaseSDK": [
@@ -39,6 +40,10 @@
     ],
     "Kingfisher": [
 
+    ],
+    "JXSegmentedView": [
+
     ]
-  }
+  },
+  "swift_version": "5.0"
 }

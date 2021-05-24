@@ -7,23 +7,23 @@
 
 import UIKit
 
-open class LGTableViewController: LGViewController, UITableViewDelegate, UITableViewDataSource {
+open class LGTableViewController: LGViewController {
     //MARK: - 初始化方法
 //    public required init(viewModel: LGTableViewModel) {
 //        super.init(nibName: nil, bundle: nil)
 //        self.baseViewModel = viewModel
 //    }
-//    
+//
 //    required public init?(coder aDecoder: NSCoder) {
 //        fatalError("init(coder:) has not been implemented")
 //    }
 
     public lazy var tableView: UITableView = {
         let t = UITableView()
-        t.delegate = self
-        t.dataSource = self
-        t.estimatedRowHeight = UITableView.automaticDimension
-        t.rowHeight = 44
+        t.estimatedRowHeight = 50
+        t.rowHeight = UITableView.automaticDimension
+        t.backgroundColor = UIColor(rgb: 0xF5F5F5)
+        t.separatorStyle = .none
         view.addSubview(t)
         return t
     }()
@@ -44,23 +44,9 @@ open class LGTableViewController: LGViewController, UITableViewDelegate, UITable
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
-    func tableViewEx() {
+
+    @objc open func tableViewEx() {
         
     }
-
-    // MARK: - Table view data source
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-    
-    open func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
 }
+

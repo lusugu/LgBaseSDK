@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import JXSegmentedView
 
 open class LGDeployData {
     public var titleColor: UIColor = .black
@@ -224,5 +225,11 @@ public extension LGViewController {
         navRightBtn.setTitleColor(textColor, for: state)
         navRightBtn.setImage(image, for: state)
         navRightBtn.isHidden = false
+    }
+}
+
+extension LGViewController : JXSegmentedListContainerViewListDelegate {
+    public func listView() -> UIView {
+        return view
     }
 }

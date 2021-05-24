@@ -84,6 +84,7 @@ open class LGTableViewCell: UITableViewCell {
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        setUpViews()
         setUpConstraints()
         viewEvent()
     }
@@ -95,6 +96,7 @@ open class LGTableViewCell: UITableViewCell {
     override open func awakeFromNib() {
         super.awakeFromNib()
         
+        setUpViews()
         setUpConstraints()
         viewEvent()
     }
