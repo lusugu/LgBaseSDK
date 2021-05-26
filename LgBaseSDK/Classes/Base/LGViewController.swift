@@ -11,7 +11,7 @@ import JXSegmentedView
 
 open class LGDeployData {
     public var titleColor: UIColor = .black
-    public var backgroundColor: UIColor = .white
+    public var navBackgroundColor: UIColor = .white
     
     /// 单例
     public class var shared: LGDeployData {
@@ -110,7 +110,7 @@ open class LGViewController: UIViewController {
     }()
     lazy var navBarView: UIView = {
         let navBarView = UIView(frame: CGRect(x: 0, y: 0, width: CGFloat.width, height: CGFloat.safeAreaTopHeight))
-        navBarView.backgroundColor = LGDeployData.shared.backgroundColor
+        navBarView.backgroundColor = LGDeployData.shared.navBackgroundColor
         view.addSubview(navBarView)
         return navBarView
     }()

@@ -8,15 +8,15 @@
 import UIKit
 import JXSegmentedView
 
-class LGSegmentBaseViewController: LGViewController {
+open class LGSegmentBaseViewController: LGViewController {
     
-    var segmentedDataSource: JXSegmentedBaseDataSource?
-    var segmentedView = JXSegmentedView()
+    public var segmentedDataSource: JXSegmentedBaseDataSource?
+    public var segmentedView = JXSegmentedView()
     lazy var listContainerView: JXSegmentedListContainerView = {
         return JXSegmentedListContainerView(dataSource: self)
     }()
 
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -29,21 +29,21 @@ class LGSegmentBaseViewController: LGViewController {
         view.addSubview(listContainerView)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         //处于第一个item的时候，才允许屏幕边缘手势返回
         navigationController?.interactivePopGestureRecognizer?.isEnabled = (segmentedView.selectedIndex == 0)
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
+    open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         //离开页面的时候，需要恢复屏幕边缘手势，不能影响其他页面
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
-    override func viewDidLayoutSubviews() {
+    open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         segmentedView.frame = CGRect(x: 0, y: 0, width: view.bounds.size.width, height: 50)
@@ -54,7 +54,7 @@ class LGSegmentBaseViewController: LGViewController {
 }
 
 extension LGSegmentBaseViewController: JXSegmentedViewDelegate {
-    func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
+    open func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
         if let dotDataSource = segmentedDataSource as? JXSegmentedDotDataSource {
             //先更新数据源的数据
             dotDataSource.dotStates[index] = false
@@ -67,14 +67,14 @@ extension LGSegmentBaseViewController: JXSegmentedViewDelegate {
 }
 
 extension LGSegmentBaseViewController: JXSegmentedListContainerViewDataSource {
-    func numberOfLists(in listContainerView: JXSegmentedListContainerView) -> Int {
+    open func numberOfLists(in listContainerView: JXSegmentedListContainerView) -> Int {
         if let titleDataSource = segmentedView.dataSource as? JXSegmentedBaseDataSource {
             return titleDataSource.dataSource.count
         }
         return 0
     }
 
-    func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
+    open func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
         return LGViewController()
     }
 }
