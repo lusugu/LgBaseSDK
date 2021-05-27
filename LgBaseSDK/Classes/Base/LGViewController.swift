@@ -12,6 +12,7 @@ import JXSegmentedView
 open class LGDeployData {
     public var titleColor: UIColor = .black
     public var navBackgroundColor: UIColor = .white
+    public var backImg: UIImage?
     
     /// 单例
     public class var shared: LGDeployData {
@@ -87,10 +88,16 @@ open class LGViewController: UIViewController {
     lazy var navLeftBtn: UIButton = {
         let btn = UIButton(frame: CGRect(x: 0, y: CGFloat.safe_top, width: CGFloat.width / 4, height: 44))
         btn.addTarget(self, action: #selector(leftEvent), for: .touchUpInside)
-        let bundle = Bundle(path: (Bundle(path: Bundle(for: LGViewController.self).path(forResource: "LgBaseSDK", ofType: "bundle")!)?.path(forResource: "LgBaseSDK", ofType: "bundle"))!)
-        let icon = bundle?.path(forResource: "back.png", ofType: nil)
-        let img = UIImage(contentsOfFile: icon!)
-        btn.setImage(img!)
+        
+        if let img = LGDeployData.shared.backImg {
+            btn.setImage(img)
+        }
+        else {
+            let bundle = Bundle(path: (Bundle(path: Bundle(for: LGViewController.self).path(forResource: "LgBaseSDK", ofType: "bundle")!)?.path(forResource: "LgBaseSDK", ofType: "bundle"))!)
+            let icon = bundle?.path(forResource: "back.png", ofType: nil)
+            let img = UIImage(contentsOfFile: icon!)
+            btn.setImage(img!)
+        }
         btn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
         btn.titleLabel?.font = .font(15)
         navBarView.addSubview(btn)
@@ -108,7 +115,7 @@ open class LGViewController: UIViewController {
         navBarView.addSubview(btn)
         return btn
     }()
-    lazy var navBarView: UIView = {
+    public lazy var navBarView: UIView = {
         let navBarView = UIView(frame: CGRect(x: 0, y: 0, width: CGFloat.width, height: CGFloat.safeAreaTopHeight))
         navBarView.backgroundColor = LGDeployData.shared.navBackgroundColor
         view.addSubview(navBarView)
@@ -178,6 +185,13 @@ open class LGViewController: UIViewController {
     
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         return self.currentStatusBarStyle
+    }
+    
+    /// 是否隐藏nav
+    public var navBarHidden: Bool = false {
+        didSet {
+            navBarView.isHidden = navBarHidden
+        }
     }
 }
 
