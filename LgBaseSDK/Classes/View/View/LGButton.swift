@@ -21,6 +21,12 @@ public class LGButton: UIControl {
             setUpConstraints()
         }
     }
+    
+    open var spacing : CGFloat = 5 {
+        didSet {
+            setUpConstraints()
+        }
+    }
 
     open var titleSize: CGFloat = 14 {
         didSet {
@@ -28,6 +34,7 @@ public class LGButton: UIControl {
         }
     }
     
+    private var contentView: UIView!
     private var tLabel: UILabel!
     private var iImageView: UIImageView!
     
@@ -58,12 +65,19 @@ public class LGButton: UIControl {
     }
     
     func setUpView() {
+        contentView = UIView()
+        addSubview(contentView)
+        
         tLabel = UILabel()
             .setFont(.font(titleSize))
-        addSubview(tLabel)
+        contentView.addSubview(tLabel)
         
         iImageView = UIImageView()
-        addSubview(iImageView)
+        contentView.addSubview(iImageView)
+        
+        contentView.snp.makeConstraints {
+            $0.center.equalTo(self)
+        }
     }
     
     //MARK: - 属性 - 状态 集合
@@ -123,7 +137,10 @@ public class LGButton: UIControl {
 }
 
 extension LGButton {
+    
     public override func setUpConstraints() {
+        super.setUpConstraints()
+        
         switch type {
         case .bottom:
             bottomConstraints()
@@ -138,35 +155,38 @@ extension LGButton {
             topConstraints()
         }
     }
-
+    
     func rightConstraints() {
         iImageView.snp.remakeConstraints { (make) in
-            make.centerY.equalTo(self)
-            make.left.equalTo(tLabel.snp.right).offset(5)
+            make.centerY.equalTo(contentView)
+            make.left.equalTo(tLabel.snp.right).offset(spacing)
+            make.right.equalTo(0)
         }
         
         tLabel.snp.remakeConstraints { (make) in
             make.left.equalTo(0)
-            make.centerY.equalTo(self)
+            make.centerY.equalTo(contentView)
         }
     }
     
     func leftConstraints() {
         iImageView.snp.remakeConstraints { (make) in
-            make.centerY.equalTo(self)
+            make.centerY.equalTo(contentView)
             make.left.equalTo(0)
         }
         
         tLabel.snp.remakeConstraints { (make) in
-            make.left.equalTo(iImageView.snp.right).offset(5)
-            make.centerY.equalTo(self)
+            make.left.equalTo(iImageView.snp.right).offset(spacing)
+            make.centerY.equalTo(contentView)
+            make.right.equalTo(0)
         }
     }
     
     func bottomConstraints() {
         iImageView.snp.remakeConstraints { (make) in
             make.centerX.equalTo(self)
-            make.top.equalTo(tLabel.snp.bottom).offset(5)
+            make.top.equalTo(tLabel.snp.bottom).offset(spacing)
+            make.bottom.equalTo(0)
         }
         
         tLabel.snp.remakeConstraints { (make) in
@@ -178,7 +198,8 @@ extension LGButton {
     func topConstraints() {
         iImageView.snp.remakeConstraints { (make) in
             make.centerX.equalTo(self)
-            make.bottom.equalTo(tLabel.snp.top).offset(-5)
+            make.bottom.equalTo(tLabel.snp.top).offset(-spacing)
+            make.top.equalTo(0)
         }
         
         tLabel.snp.remakeConstraints { (make) in
