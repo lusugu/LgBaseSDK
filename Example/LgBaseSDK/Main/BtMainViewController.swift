@@ -7,36 +7,43 @@
 
 import UIKit
 import LgBaseSDK
+import JXSegmentedView
 
-class BtMainViewController: LGViewController {
+class BtMainViewController: LGSegmentBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        let l = UILabel()
-            .setFont(.font(12))
-        l.setText("上午安抚")
-        l.setTextColor(.red)
-        l.frame = CGRect(x: 100, y: 60, width: 150, height: 50)
-        view.addSubview(l)
         
-        // Do any additional setup after loading the view.
-        let btn: LGButton = LGButton(type: .right)
-        btn.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        btn.setTitle(title: "12", state: .normal)
-        btn.setImageColor(image: UIImage(named: "icon"), state: .normal)
-        self.view.addSubview(btn)
+    }
+ 
+    override func setUpViews() {
+        super.setUpViews()
         
-        btn.rx.controlEvent(.touchUpInside).subscribe { [weak self] (e) in
-            let vc = FirstViewController()
-            self?.navigationController?.pushViewController(vc, animated: true)
+        let dataSource = JXSegmentedTitleDataSource()
+        dataSource.isTitleColorGradientEnabled = true
+        dataSource.titles = ["猴哥", "青蛙王子"]
+        segmentedDataSource = dataSource
+        
+        //配置指示器
+        let indicator = JXSegmentedIndicatorLineView()
+        indicator.indicatorWidth = 20
+        indicators = [indicator]
+        
+        childViewController = { index in
+            
+            if index == 0 {
+                return BtFristViewController()
+            }
+            
+            return BtSecondViewController()
+        }
+    
+        segmentedFrame = {
+            return CGRect(x: 0, y: 0, width: CGFloat.width, height: 100)
         }
         
-        navBarBackgroundColor = .yellow
-        title = "测试"
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        listContainerViewFrame = {
+            return CGRect(x: 0, y: 100, width: CGFloat.width, height: CGFloat.height - 100)
+        }
     }
 }

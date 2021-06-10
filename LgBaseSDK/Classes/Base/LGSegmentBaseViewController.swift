@@ -10,8 +10,31 @@ import JXSegmentedView
 
 open class LGSegmentBaseViewController: LGViewController {
     
-    public var segmentedDataSource: JXSegmentedBaseDataSource?
-    public var segmentedView = JXSegmentedView()
+    /// 返回segment的控制器
+    public var childViewController : ((_ index: Int) -> LGViewController)?
+    /// 返回布局
+    public var segmentedFrame: (() -> CGRect)?
+    public var listContainerViewFrame: (() -> CGRect)?
+    /// segment的数据源
+    public var segmentedDataSource: JXSegmentedBaseDataSource? {
+        didSet {
+            //segmentedViewDataSource一定要通过属性强持有！！！！！！！！！
+            segmentedView.dataSource = segmentedDataSource
+            segmentedView.delegate = self
+            view.addSubview(segmentedView)
+            
+            segmentedView.listContainer = listContainerView
+            view.addSubview(listContainerView)
+        }
+    }
+    /// 指示 JXSegmentedIndicatorBaseView
+    public var indicators: [JXSegmentedIndicatorProtocol & UIView]? {
+        didSet {
+            segmentedView.indicators = indicators!
+        }
+    }
+
+    var segmentedView = JXSegmentedView()
     lazy var listContainerView: JXSegmentedListContainerView = {
         return JXSegmentedListContainerView(dataSource: self)
     }()
@@ -20,13 +43,6 @@ open class LGSegmentBaseViewController: LGViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        //segmentedViewDataSource一定要通过属性强持有！！！！！！！！！
-        segmentedView.dataSource = segmentedDataSource
-        segmentedView.delegate = self
-        view.addSubview(segmentedView)
-        
-        segmentedView.listContainer = listContainerView
-        view.addSubview(listContainerView)
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -46,8 +62,13 @@ open class LGSegmentBaseViewController: LGViewController {
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        segmentedView.frame = CGRect(x: 0, y: 0, width: view.bounds.size.width, height: 50)
-        listContainerView.frame = CGRect(x: 0, y: 50, width: view.bounds.size.width, height: view.bounds.size.height - 50)
+        if let frame = segmentedFrame?() {
+            segmentedView.frame = frame
+        }
+
+        if let frame = listContainerViewFrame?() {
+            listContainerView.frame = frame
+        }
     }
     
     
@@ -75,6 +96,6 @@ extension LGSegmentBaseViewController: JXSegmentedListContainerViewDataSource {
     }
 
     open func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
-        return LGViewController()
+        return childViewController!(index)
     }
 }

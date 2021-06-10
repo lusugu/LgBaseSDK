@@ -48,6 +48,9 @@ open class LGViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         
         setUpNav()
+        setUpViews()
+        setUpConstraints()
+        viewEvent()
         
         // 在自定义leftBarButtonItem后添加下面代码就可以完美解决返回手势无效的情况
         guard let nav = navigationController else {
@@ -67,10 +70,6 @@ open class LGViewController: UIViewController {
                 }
             }
         }
-        
-        setUpViews()
-        setUpConstraints()
-        viewEvent()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
