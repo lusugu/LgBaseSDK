@@ -85,7 +85,7 @@ open class LGViewController: UIViewController {
     var baseViewModel: LGViewModel!
     
     //MARK: - 属性
-    lazy var navLeftBtn: UIButton = {
+    public lazy var navLeftBtn: UIButton = {
         let btn = UIButton(frame: CGRect(x: 0, y: CGFloat.safe_top, width: CGFloat.width / 4, height: 44))
         btn.addTarget(self, action: #selector(leftEvent), for: .touchUpInside)
         
@@ -105,7 +105,7 @@ open class LGViewController: UIViewController {
         btn.isHidden = true
         return btn
     }()
-    lazy var navRightBtn: UIButton = {
+    public lazy var navRightBtn: UIButton = {
         let btn = UIButton(frame: CGRect(x: CGFloat.width - CGFloat.width / 4, y: CGFloat.safe_top, width: CGFloat.width / 4, height: 44))
         btn.addTarget(self, action: #selector(rightEvent), for: .touchUpInside)
         btn.isHidden = true

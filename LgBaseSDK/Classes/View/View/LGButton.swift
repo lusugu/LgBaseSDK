@@ -34,6 +34,7 @@ public class LGButton: UIControl {
         }
     }
     
+    private var bgView: UIView!
     private var contentView: UIView!
     private var tLabel: UILabel!
     private var iImageView: UIImageView!
@@ -43,13 +44,6 @@ public class LGButton: UIControl {
     private var textColorDic: [UIControl.State.RawValue: UIColor] = [:]
     private var imageDic: [UIControl.State.RawValue: UIImage] = [:]
     private var backgroundColorDic: [UIControl.State.RawValue: UIColor] = [:]
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        setUpView()
-        setUpConstraints()
-    }
     
     public init(type: LGButtonType = .top) {
         super.init(frame: .zero)
@@ -65,6 +59,10 @@ public class LGButton: UIControl {
     }
     
     func setUpView() {
+        bgView = UIView()
+        bgView.isUserInteractionEnabled = false
+        addSubview(bgView)
+        
         contentView = UIView()
         addSubview(contentView)
         
@@ -74,6 +72,10 @@ public class LGButton: UIControl {
         
         iImageView = UIImageView()
         contentView.addSubview(iImageView)
+        
+        bgView.snp.makeConstraints {
+            $0.edges.equalTo(0)
+        }
         
         contentView.snp.makeConstraints {
             $0.center.equalTo(self)
@@ -114,7 +116,7 @@ public class LGButton: UIControl {
             imageDic.updateValue(img, forKey: state.rawValue)
         }
     }
-    
+
     public override func draw(_ rect: CGRect) {
         super.draw(rect)
         
@@ -131,7 +133,7 @@ public class LGButton: UIControl {
         }
         
         if let value = backgroundColorDic[state.rawValue] {
-            backgroundColor = value
+            bgView.backgroundColor = value
         }
     }
 }
