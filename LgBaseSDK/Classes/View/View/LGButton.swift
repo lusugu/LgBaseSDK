@@ -38,12 +38,13 @@ public class LGButton: UIControl {
     private var contentView: UIView!
     private var tLabel: UILabel!
     private var iImageView: UIImageView!
-    
+    private var bgImageView: UIImageView!
+
     //MARK: - 属性 - 状态 集合
     private var textDic: [UIControl.State.RawValue: String] = [:]
     private var textColorDic: [UIControl.State.RawValue: UIColor] = [:]
     private var imageDic: [UIControl.State.RawValue: UIImage] = [:]
-    private var backgroundColorDic: [UIControl.State.RawValue: UIColor] = [:]
+    private var backgroundImageDic: [UIControl.State.RawValue: UIImage] = [:]
     
     public init(type: LGButtonType = .top) {
         super.init(frame: .zero)
@@ -66,6 +67,9 @@ public class LGButton: UIControl {
         contentView = UIView()
         addSubview(contentView)
         
+        bgImageView = UIImageView()
+        contentView.addSubview(bgImageView)
+        
         tLabel = UILabel()
             .setFont(.font(titleSize))
         contentView.addSubview(tLabel)
@@ -74,6 +78,10 @@ public class LGButton: UIControl {
         contentView.addSubview(iImageView)
         
         bgView.snp.makeConstraints {
+            $0.edges.equalTo(0)
+        }
+        
+        bgImageView.snp.makeConstraints {
             $0.edges.equalTo(0)
         }
         
@@ -103,18 +111,24 @@ public class LGButton: UIControl {
     /// - Parameters:
     ///   - color: 背景颜色
     ///   - state: 状态
-    open func setBackgroundColor(color: UIColor, state: UIControl.State) {
-        backgroundColorDic.updateValue(color, forKey: state.rawValue)
+    open func setBackgroundImage(image: UIImage?, state: UIControl.State) {
+        if let img = image {
+            backgroundImageDic.updateValue(img, forKey: state.rawValue)
+        }
     }
     
     /// 设置背景颜色
     /// - Parameters:
     ///   - color: 背景颜色
     ///   - state: 状态
-    open func setImageColor(image: UIImage?, state: UIControl.State) {
+    open func setImage(image: UIImage?, state: UIControl.State) {
         if let img = image {
             imageDic.updateValue(img, forKey: state.rawValue)
         }
+    }
+    
+    open func setContentViewColor(color: UIColor) {
+        contentView.backgroundColor = color
     }
 
     public override func draw(_ rect: CGRect) {
@@ -132,8 +146,8 @@ public class LGButton: UIControl {
             iImageView.image = value
         }
         
-        if let value = backgroundColorDic[state.rawValue] {
-            bgView.backgroundColor = value
+        if let value = backgroundImageDic[state.rawValue] {
+            bgImageView.image = value
         }
     }
 }
