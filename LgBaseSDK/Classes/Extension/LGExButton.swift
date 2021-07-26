@@ -40,14 +40,14 @@ public extension UIButton {
     }
     
     @discardableResult
-    func setBackgroundImage(_ image: UIImage,
+    func setBackgroundImage(_ image: UIImage?,
                            state: UIControl.State = .normal) -> Self {
         setBackgroundImage(image, for: state)
         return self
     }
     
     @discardableResult
-    func setImage(_ image: UIImage, state: UIControl.State = .normal) -> Self {
+    func setImage(_ image: UIImage?, state: UIControl.State = .normal) -> Self {
         setImage(image, for: state)
         return self
     }

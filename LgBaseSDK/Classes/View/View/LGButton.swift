@@ -34,6 +34,24 @@ public class LGButton: UIControl {
         }
     }
     
+    open var titleBoldSize: CGFloat = 14 {
+        didSet {
+            self.tLabel.font = .fontBold(titleSize)
+        }
+    }
+    
+    open var imgSize: CGSize = .zero {
+        didSet {
+            iImageView.snp.remakeConstraints { (make) in
+                make.centerY.equalTo(contentView)
+                make.left.equalTo(tLabel.snp.right).offset(spacing)
+                make.right.equalTo(0)
+                make.width.equalTo(imgSize.width)
+                make.height.equalTo(imgSize.height)
+            }
+        }
+    }
+    
     private var bgView: UIView!
     private var contentView: UIView!
     private var tLabel: UILabel!
