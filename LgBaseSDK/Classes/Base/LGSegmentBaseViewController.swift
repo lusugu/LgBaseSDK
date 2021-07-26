@@ -34,7 +34,7 @@ open class LGSegmentBaseViewController: LGViewController {
         }
     }
 
-    var segmentedView = JXSegmentedView()
+    open var segmentedView = JXSegmentedView()
     lazy var listContainerView: JXSegmentedListContainerView = {
         return JXSegmentedListContainerView(dataSource: self)
     }()
