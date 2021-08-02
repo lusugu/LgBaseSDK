@@ -6,18 +6,35 @@
 //
 
 import UIKit
+import MJRefresh
 
 open class LGTableViewController: LGViewController {
+    
+    /// 当前页码
+    var curPage: Int = 1
+    /// header
+    var headerView: MJRefreshNormalHeader? {
+        didSet {
+            if let h = headerView {
+                tableView.mj_header = h
+            }
+            else {
+                tableView.mj_header = nil
+            }
+        }
+    }
+    var footerView: MJRefreshAutoNormalFooter? {
+        didSet {
+            if let f = footerView {
+                tableView.mj_footer = f
+            }
+            else {
+                tableView.mj_footer = nil
+            }
+        }
+    }
+    
     //MARK: - 初始化方法
-//    public required init(viewModel: LGTableViewModel) {
-//        super.init(nibName: nil, bundle: nil)
-//        self.baseViewModel = viewModel
-//    }
-//
-//    required public init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-
     public lazy var tableView: UITableView = {
         let t = UITableView()
         t.estimatedRowHeight = 50
@@ -33,16 +50,7 @@ open class LGTableViewController: LGViewController {
 
         self.tableView.separatorStyle = .none
         
-        setUpViews()
-        setUpConstraints()
-        viewEvent()
         tableViewEx()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     @objc open func tableViewEx() {

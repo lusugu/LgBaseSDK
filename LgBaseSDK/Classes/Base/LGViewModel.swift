@@ -12,6 +12,9 @@ import RxCocoa
 open class LGViewModel: NSObject {
     
     public let disposedBag: DisposeBag = DisposeBag()
+    
+    public var succToUi: (()->Void)?
+    public var errToUi: ((String)->Void)?
 
     deinit {
         print("=====================================================================")

@@ -115,6 +115,7 @@ public class LGButton: UIControl {
     ///   - state: 状态
     open func setTitle(title: String, state: UIControl.State) {
         textDic.updateValue(title, forKey: state.rawValue)
+        self.setNeedsDisplay()
     }
     
     /// 设置字体颜色
@@ -123,6 +124,7 @@ public class LGButton: UIControl {
     ///   - state: 状态
     open func setTitleColor(color: UIColor, state: UIControl.State) {
         textColorDic.updateValue(color, forKey: state.rawValue)
+        self.setNeedsDisplay()
     }
     
     /// 设置背景颜色
@@ -132,6 +134,7 @@ public class LGButton: UIControl {
     open func setBackgroundImage(image: UIImage?, state: UIControl.State) {
         if let img = image {
             backgroundImageDic.updateValue(img, forKey: state.rawValue)
+            self.setNeedsDisplay()
         }
     }
     
@@ -142,11 +145,13 @@ public class LGButton: UIControl {
     open func setImage(image: UIImage?, state: UIControl.State) {
         if let img = image {
             imageDic.updateValue(img, forKey: state.rawValue)
+            self.setNeedsDisplay()
         }
     }
     
     open func setContentViewColor(color: UIColor) {
         contentView.backgroundColor = color
+        self.setNeedsDisplay()
     }
 
     public override func draw(_ rect: CGRect) {
