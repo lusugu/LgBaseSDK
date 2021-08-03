@@ -61,11 +61,11 @@ open class LGTableViewController: LGViewController {
         
     }
     
-    func loadMore() {
+    open func loadMore() {
         
     }
     
-    func refresh()  {
+    open func refresh()  {
         
     }
 }

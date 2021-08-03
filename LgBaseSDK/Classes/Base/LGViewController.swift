@@ -26,16 +26,6 @@ open class LGDeployData {
 open class LGViewController: UIViewController {
     
     public let disposedBag: DisposeBag = DisposeBag()
-    
-//    //MARK: - 初始化方法
-//    public required init(viewModel: LGViewModel) {
-//        super.init(nibName: nil, bundle: nil)
-//        self.baseViewModel = viewModel
-//    }
-//
-//    required public init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
 
     //MARK: -
     open override func viewDidLoad() {
@@ -78,6 +68,23 @@ open class LGViewController: UIViewController {
         print("=====================================================================")
         print(" \(Self.self) viewWillAppear ")
         print("=====================================================================")
+        
+        viewAppear()
+    }
+    
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        viewDisapperar()
+    }
+    
+    // MARK: - 不能重写 viewWillAppear viewWillDisappear
+    func viewAppear() {
+        
+    }
+    
+    func viewDisapperar() {
+        
     }
     
     //MARK: - attribute
