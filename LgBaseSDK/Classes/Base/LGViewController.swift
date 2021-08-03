@@ -79,11 +79,11 @@ open class LGViewController: UIViewController {
     }
     
     // MARK: - 不能重写 viewWillAppear viewWillDisappear
-    func viewAppear() {
+    open func viewAppear() {
         
     }
     
-    func viewDisapperar() {
+    open func viewDisapperar() {
         
     }
     
