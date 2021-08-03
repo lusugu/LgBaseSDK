@@ -1,6 +1,6 @@
 {
   "name": "LgBaseSDK",
-  "version": "0.3.20",
+  "version": "0.3.21",
   "summary": "A short description of LgBaseSDK.",
   "description": "TODO: 基础的组件库.",
   "homepage": "https://github.com/lusugu/LgBaseSDK",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/lusugu/LgBaseSDK.git",
-    "tag": "0.3.20"
+    "tag": "0.3.21"
   },
   "platforms": {
     "ios": "10.0"
@@ -44,7 +44,7 @@
     "JXSegmentedView": [
 
     ],
-    "MJRefresh": [
+    "GTMRefresh": [
 
     ]
   },

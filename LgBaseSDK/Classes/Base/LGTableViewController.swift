@@ -6,31 +6,35 @@
 //
 
 import UIKit
-import MJRefresh
+import GTMRefresh
 
 open class LGTableViewController: LGViewController {
     
     /// 当前页码
-    var curPage: Int = 1
-    /// header
-    var headerView: MJRefreshNormalHeader? {
+    open var curPage: Int = 1
+    open var needLoadMore: Bool = false {
         didSet {
-            if let h = headerView {
-                tableView.mj_header = h
-            }
-            else {
-                tableView.mj_header = nil
+            if needLoadMore {
+                tableView.gtm_addLoadMoreFooterView { [weak self] in
+                    self?.loadMore()
+                }
             }
         }
     }
-    var footerView: MJRefreshAutoNormalFooter? {
+    
+    open var needRefresh: Bool = false {
         didSet {
-            if let f = footerView {
-                tableView.mj_footer = f
+            if needLoadMore {
+                tableView.gtm_addRefreshHeaderView { [weak self] in
+                    self?.refresh()
+                }
             }
-            else {
-                tableView.mj_footer = nil
-            }
+        }
+    }
+    
+    open var noMore: Bool = false {
+        didSet {
+            tableView.endLoadMore(isNoMoreData: noMore)
         }
     }
     
@@ -54,6 +58,14 @@ open class LGTableViewController: LGViewController {
     }
 
     @objc open func tableViewEx() {
+        
+    }
+    
+    func loadMore() {
+        
+    }
+    
+    func refresh()  {
         
     }
 }
