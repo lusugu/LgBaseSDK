@@ -174,14 +174,14 @@ public class LGButton: UIControl {
         }
     }
     
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         if self.bounds.contains(point) {
             return self
         }
         return nil
     }
     
-    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+    public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         if self.bounds.contains(point) {
             return true
         }
