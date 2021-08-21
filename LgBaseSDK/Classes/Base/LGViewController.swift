@@ -78,15 +78,6 @@ open class LGViewController: UIViewController {
         viewDisapperar()
     }
     
-    // MARK: - 不能重写 viewWillAppear viewWillDisappear
-    open func viewAppear() {
-        
-    }
-    
-    open func viewDisapperar() {
-        
-    }
-    
     //MARK: - attribute
     var baseViewModel: LGViewModel!
     

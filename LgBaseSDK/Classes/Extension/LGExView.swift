@@ -44,4 +44,6 @@ import SnapKit
     @objc open func setUpConstraints() {}
     @objc open func setUpViews() {}
     @objc open func viewEvent() {}
+    @objc open func viewAppear() {}
+    @objc open func viewDisapperar() {}
 }

@@ -173,6 +173,20 @@ public class LGButton: UIControl {
             bgImageView.image = value
         }
     }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if self.bounds.contains(point) {
+            return self
+        }
+        return nil
+    }
+    
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        if self.bounds.contains(point) {
+            return true
+        }
+        return false
+    }
 }
 
 extension LGButton {
