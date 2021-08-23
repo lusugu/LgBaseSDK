@@ -27,6 +27,9 @@ open class LGViewController: UIViewController {
     
     public let disposedBag: DisposeBag = DisposeBag()
 
+    open var keyboardHeight: CGFloat = 0
+    open var keyboardShowTime: TimeInterval = 0.25
+    
     //MARK: -
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -242,5 +245,38 @@ public extension LGViewController {
 extension LGViewController : JXSegmentedListContainerViewListDelegate {
     public func listView() -> UIView {
         return view
+    }
+}
+
+/// 键盘监听
+extension LGViewController {
+    open func addNotification() {
+        NotificationCenter.default
+            .addObserver(self, selector: #selector(keyboardWillShow(notification:)),
+                         name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default
+            .addObserver(self, selector: #selector(keyboardWillHide(notification:)),
+                         name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc dynamic open func keyboardWillShow(notification: Notification) {
+        let info = notification.userInfo
+        let value: NSValue = info![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
+        let size: CGSize = value.cgRectValue.size
+        
+        let animationDurationValue: NSValue = info![UIResponder.keyboardAnimationDurationUserInfoKey] as! NSValue
+        var animationDuration = 0.0
+        animationDurationValue.getValue(&animationDuration)
+        
+        keyboardHeight = size.height
+        keyboardShowTime = animationDuration
+    }
+    
+    @objc dynamic open func keyboardWillHide(notification: Notification) {
+        let info = notification.userInfo
+        let animationDurationValue: NSValue = info![UIResponder.keyboardAnimationDurationUserInfoKey] as! NSValue
+        var animationDuration = 0.0
+        animationDurationValue.getValue(&animationDuration)
+        keyboardShowTime = animationDuration
     }
 }
