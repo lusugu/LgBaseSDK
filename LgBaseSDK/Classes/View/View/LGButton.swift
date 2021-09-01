@@ -69,7 +69,7 @@ public class LGButton: UIControl {
         
         self.type = type
         
-        setUpView()
+        setUpViews()
         setUpConstraints()
     }
     
@@ -85,7 +85,9 @@ public class LGButton: UIControl {
         viewEvent()
     }
     
-    func setUpView() {
+    public override func setUpViews() {
+        super.setUpViews()
+        
         bgView = UIView()
         bgView.isUserInteractionEnabled = false
         addSubview(bgView)
