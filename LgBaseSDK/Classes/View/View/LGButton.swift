@@ -73,8 +73,16 @@ public class LGButton: UIControl {
         setUpConstraints()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    public override func awakeFromNib() {
+       super.awakeFromNib()
+        
+        setUpViews()
+        setUpConstraints()
+        viewEvent()
     }
     
     func setUpView() {
@@ -86,7 +94,7 @@ public class LGButton: UIControl {
         addSubview(contentView)
         
         bgImageView = UIImageView()
-        contentView.addSubview(bgImageView)
+        bgView.addSubview(bgImageView)
         
         tLabel = UILabel()
             .setFont(.font(titleSize))
