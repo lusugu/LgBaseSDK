@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LgBaseSDK'
-  s.version          = '0.4.7'
+  s.version          = '0.4.8'
   s.summary          = 'A short description of LgBaseSDK.'
 
 # This description is used to generate tags and improve search results.
@@ -47,7 +47,6 @@ TODO: 基础的组件库.
   s.dependency 'RxSwift'
   s.dependency 'RxCocoa'
   s.dependency 'RxDataSources'
-  s.dependency 'Kingfisher'
   s.dependency 'JXSegmentedView'
   s.dependency 'GTMRefresh'
 
