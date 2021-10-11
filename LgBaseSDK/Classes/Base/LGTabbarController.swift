@@ -48,7 +48,21 @@ open class LGTabbarController: UITabBarController {
     }
     open var barTintColor: UIColor? {
         didSet {
-            self.tabBar.barTintColor = barTintColor
+            if #available(iOS 13.0, *) {
+                let app = UITabBarAppearance()
+                app.configureWithOpaqueBackground()
+                app.backgroundColor = barTintColor
+                if #available(iOS 15.0, *) {
+                    tabBar.scrollEdgeAppearance = app
+                } else {
+                    self.tabBar.barTintColor = barTintColor
+                    // Fallback on earlier versions
+                }
+                tabBar.standardAppearance = app
+            } else {
+                // Fallback on earlier versions
+                self.tabBar.barTintColor = barTintColor
+            }
         }
     }
 

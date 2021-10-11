@@ -75,6 +75,12 @@ open class LGViewController: UIViewController {
         viewAppear()
     }
     
+    deinit {
+        print("=====================================================================")
+        print(" \(Self.self) deinit ")
+        print("=====================================================================")
+    }
+    
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
