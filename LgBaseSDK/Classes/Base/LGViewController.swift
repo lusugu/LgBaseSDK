@@ -239,7 +239,7 @@ public extension LGViewController {
     //MARK: - 右边按钮
     func setRightBtn(_ title: String = "",
                     textColor: UIColor = .black,
-                    image: UIImage,
+                    image: UIImage? = nil,
                     state: UIControl.State = .normal) {
         navRightBtn.setTitle(title, for: state)
         navRightBtn.setTitleColor(textColor, for: state)
