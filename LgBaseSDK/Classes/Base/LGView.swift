@@ -26,5 +26,9 @@ open class LGView: UIView {
     
     open override func awakeFromNib() {
        super.awakeFromNib()
+        
+        setUpViews()
+        setUpConstraints()
+        viewEvent()
     }
 }

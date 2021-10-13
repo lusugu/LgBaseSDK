@@ -11,8 +11,8 @@ import RxSwift
 
 public extension UITableViewCell {
     class func withTableView(tableView: UITableView) -> Self {
-        let identifier = String(utf8String: object_getClassName(self))
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier!)
+        let identifier = (String(utf8String: object_getClassName(self))! as NSString).pathExtension
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
         if let _ = cell {
             return cell! as! Self
         }
