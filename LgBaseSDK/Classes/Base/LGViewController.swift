@@ -30,6 +30,14 @@ open class LGViewController: UIViewController {
     open var keyboardHeight: CGFloat = 0
     open var keyboardShowTime: TimeInterval = 0.25
     
+    open class func fromStoryboard(storyboardName: String) -> Self {
+        let stroyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        
+        let identifier = (String(utf8String: object_getClassName(self))! as NSString).pathExtension
+        let vc = stroyboard.instantiateViewController(withIdentifier: identifier)
+        return vc as! Self
+    }
+    
     //MARK: -
     open override func viewDidLoad() {
         super.viewDidLoad()
