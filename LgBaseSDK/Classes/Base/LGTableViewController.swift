@@ -24,7 +24,7 @@ open class LGTableViewController: LGViewController {
     
     open var needRefresh: Bool = false {
         didSet {
-            if needLoadMore {
+            if needRefresh {
                 tableView.gtm_addRefreshHeaderView { [weak self] in
                     self?.refresh()
                 }
