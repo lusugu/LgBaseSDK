@@ -43,6 +43,33 @@ open class LGTableViewCell: UITableViewCell {
         }
     }
     
+    ///分割线左边距
+    open var sepLeftMargin: CGFloat = 0.0 {
+        didSet {
+            self.sepLine.snp.updateConstraints { make in
+                make.left.equalTo(sepLeftMargin)
+            }
+        }
+    }
+    
+    
+    ///分割线右边距
+    open var sepRightMargin: CGFloat = 0.0 {
+        didSet {
+            self.sepLine.snp.updateConstraints { make in
+                make.right.equalTo(-sepLeftMargin)
+            }
+        }
+    }
+    
+    
+    ///分割线颜色
+    open var sepLineColor:UIColor = UIColor(rgb: 0xE4E4E4) {
+        didSet {
+            self.sepLine.backgroundColor = sepLineColor
+        }
+    }
+    
     /// 是否需要分割线
     open var isShowSep: Bool = true {
         didSet {
