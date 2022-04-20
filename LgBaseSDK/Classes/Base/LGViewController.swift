@@ -146,7 +146,7 @@ open class LGViewController: UIViewController {
         navBarView.addSubview(v)
         return v
     }()
-    lazy var headTitleLabel: UILabel = {
+    public lazy var headTitleLabel: UILabel = {
         let l = UILabel(frame: CGRect(x: CGFloat.width / 4, y: CGFloat.safe_top, width: CGFloat.width / 2, height: 44))
         l.textColor = LGDeployData.shared.titleColor
         l.font = .fontBold(18)

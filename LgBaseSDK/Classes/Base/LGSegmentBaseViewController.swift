@@ -72,6 +72,11 @@ open class LGSegmentBaseViewController: LGViewController {
     }
     
     
+    @objc open func didSelectedItemAt(index: Int) {
+        
+    }
+    
+    
 }
 
 extension LGSegmentBaseViewController: JXSegmentedViewDelegate {
@@ -82,7 +87,7 @@ extension LGSegmentBaseViewController: JXSegmentedViewDelegate {
             //再调用reloadItem(at: index)
             segmentedView.reloadItem(at: index)
         }
-
+        didSelectedItemAt(index: index)
         navigationController?.interactivePopGestureRecognizer?.isEnabled = (segmentedView.selectedIndex == 0)
     }
 }

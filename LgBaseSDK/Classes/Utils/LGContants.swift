@@ -8,4 +8,4 @@
 import UIKit
 
 /// 是不是手机判断
-public let jm_isPhone = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone
+public let jm_isPhone = UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone

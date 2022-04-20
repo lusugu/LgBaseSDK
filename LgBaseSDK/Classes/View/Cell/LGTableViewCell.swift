@@ -27,7 +27,7 @@ open class LGTableViewCell: UITableViewCell {
     /// 是否需要箭头
     open var isShowArrow: Bool = false {
         didSet {
-            self.arrow.isHidden = !isShowSep
+            self.arrow.isHidden = !isShowArrow
             
             self.arrow.snp.remakeConstraints { (make) in
                 make.right.equalTo(-10)
@@ -38,6 +38,11 @@ open class LGTableViewCell: UITableViewCell {
                 childView.snp.remakeConstraints { (make) in
                     make.left.top.bottom.equalTo(0)
                     make.right.equalTo(self.arrow.snp.left)
+                }
+            }
+            else {
+                childView.snp.remakeConstraints { (make) in
+                    make.edges.equalToSuperview()
                 }
             }
         }
@@ -98,12 +103,7 @@ open class LGTableViewCell: UITableViewCell {
     /// 分割线
     private lazy var sepLine: UIView = {
         let v = UIView()
-        if #available(iOS 13.0, *) {
-            v.backgroundColor = .separator
-        } else {
-            // Fallback on earlier versions
-            v.backgroundColor = UIColor(rgb: 0xE4E4E4)
-        }
+        v.backgroundColor = UIColor(rgb: 0xD2D2D2, alpha: 0.3)
         self.contentView.addSubview(v)
         return v
     }()

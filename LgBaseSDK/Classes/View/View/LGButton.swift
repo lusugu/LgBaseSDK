@@ -16,6 +16,17 @@ public class LGButton: UIControl {
         case bottom
     }
     
+    public enum LGButtonAlign {
+        case center
+        case normal
+    }
+    
+    open var align: LGButtonAlign = .center {
+        didSet {
+            setUpConstraints()
+        }
+    }
+    
     open var type : LGButtonType = .top {
         didSet {
             setUpConstraints()
@@ -42,13 +53,7 @@ public class LGButton: UIControl {
     
     open var imgSize: CGSize = .zero {
         didSet {
-            iImageView.snp.remakeConstraints { (make) in
-                make.centerY.equalTo(contentView)
-                make.left.equalTo(tLabel.snp.right).offset(spacing)
-                make.right.equalTo(0)
-                make.width.equalTo(imgSize.width)
-                make.height.equalTo(imgSize.height)
-            }
+            setUpConstraints()
         }
     }
     
@@ -113,7 +118,7 @@ public class LGButton: UIControl {
             $0.edges.equalTo(0)
         }
         
-        contentView.snp.makeConstraints {
+        contentView.snp.remakeConstraints {
             $0.center.equalTo(self)
         }
     }
@@ -220,54 +225,152 @@ extension LGButton {
     }
     
     func rightConstraints() {
-        iImageView.snp.remakeConstraints { (make) in
-            make.centerY.equalTo(contentView)
-            make.left.equalTo(tLabel.snp.right).offset(spacing)
-            make.right.equalTo(0)
+        if align == .center {
+            iImageView.snp.remakeConstraints { (make) in
+                make.centerY.equalTo(contentView)
+                make.left.equalTo(tLabel.snp.right).offset(spacing)
+                make.right.equalTo(0)
+                if imgSize != .zero {
+                    make.width.equalTo(imgSize.width)
+                    make.height.equalTo(imgSize.height)
+                }
+            }
+            
+            tLabel.snp.remakeConstraints { (make) in
+                make.left.equalTo(0)
+                make.centerY.equalTo(contentView)
+            }
         }
-        
-        tLabel.snp.remakeConstraints { (make) in
-            make.left.equalTo(0)
-            make.centerY.equalTo(contentView)
+        else {
+            contentView.snp.remakeConstraints { make in
+                make.edges.equalTo(0)
+            }
+            iImageView.snp.remakeConstraints { (make) in
+                make.centerY.equalTo(contentView)
+                make.left.equalTo(tLabel.snp.right).offset(spacing)
+                make.right.equalTo(0)
+                if imgSize != .zero {
+                    make.width.equalTo(imgSize.width)
+                    make.height.equalTo(imgSize.height)
+                }
+            }
+            
+            tLabel.snp.remakeConstraints { (make) in
+                make.centerY.equalTo(contentView)
+            }
         }
     }
     
     func leftConstraints() {
-        iImageView.snp.remakeConstraints { (make) in
-            make.centerY.equalTo(contentView)
-            make.left.equalTo(0)
+        if align == .center {
+            iImageView.snp.remakeConstraints { (make) in
+                make.centerY.equalTo(contentView)
+                make.left.equalTo(0)
+                if imgSize != .zero {
+                    make.width.equalTo(imgSize.width)
+                    make.height.equalTo(imgSize.height)
+                }
+            }
+            
+            tLabel.snp.remakeConstraints { (make) in
+                make.left.equalTo(iImageView.snp.right).offset(spacing)
+                make.centerY.equalTo(contentView)
+                make.right.equalTo(0)
+            }
         }
-        
-        tLabel.snp.remakeConstraints { (make) in
-            make.left.equalTo(iImageView.snp.right).offset(spacing)
-            make.centerY.equalTo(contentView)
-            make.right.equalTo(0)
+        else {
+            contentView.snp.remakeConstraints { make in
+                make.edges.equalTo(0)
+            }
+            iImageView.snp.remakeConstraints { (make) in
+                make.centerY.equalTo(contentView)
+                make.left.equalTo(10)
+                if imgSize != .zero {
+                    make.width.equalTo(imgSize.width)
+                    make.height.equalTo(imgSize.height)
+                }
+            }
+            
+            tLabel.snp.remakeConstraints { (make) in
+                make.left.equalTo(iImageView.snp.right).offset(spacing)
+                make.centerY.equalTo(iImageView)
+            }
         }
     }
     
     func bottomConstraints() {
-        iImageView.snp.remakeConstraints { (make) in
-            make.centerX.equalTo(self)
-            make.top.equalTo(tLabel.snp.bottom).offset(spacing)
-            make.bottom.equalTo(0)
+        if align == .center {
+            iImageView.snp.remakeConstraints { (make) in
+                make.centerX.equalTo(self)
+                make.top.equalTo(tLabel.snp.bottom).offset(spacing)
+                make.bottom.equalTo(0)
+                if imgSize != .zero {
+                    make.width.equalTo(imgSize.width)
+                    make.height.equalTo(imgSize.height)
+                }
+            }
+            
+            tLabel.snp.remakeConstraints { (make) in
+                make.top.equalTo(0)
+                make.centerX.equalTo(self)
+            }
         }
-        
-        tLabel.snp.remakeConstraints { (make) in
-            make.top.equalTo(0)
-            make.centerX.equalTo(self)
+        else {
+            contentView.snp.remakeConstraints { make in
+                make.edges.equalTo(0)
+            }
+            
+            iImageView.snp.remakeConstraints { (make) in
+                make.centerX.equalTo(self)
+                make.top.equalTo(tLabel.snp.bottom).offset(spacing)
+                make.bottom.equalTo(0)
+                if imgSize != .zero {
+                    make.width.equalTo(imgSize.width)
+                    make.height.equalTo(imgSize.height)
+                }
+            }
+            
+            tLabel.snp.remakeConstraints { (make) in
+                make.centerX.equalTo(self)
+            }
         }
     }
     
     func topConstraints() {
-        iImageView.snp.remakeConstraints { (make) in
-            make.centerX.equalTo(self)
-            make.bottom.equalTo(tLabel.snp.top).offset(-spacing)
-            make.top.equalTo(0)
+        if align == .center {
+            iImageView.snp.remakeConstraints { (make) in
+                make.centerX.equalTo(self)
+                make.bottom.equalTo(tLabel.snp.top).offset(-spacing)
+                make.top.equalTo(0)
+                if imgSize != .zero {
+                    make.width.equalTo(imgSize.width)
+                    make.height.equalTo(imgSize.height)
+                }
+            }
+            
+            tLabel.snp.remakeConstraints { (make) in
+                make.bottom.equalTo(0)
+                make.centerX.equalTo(self)
+            }
         }
-        
-        tLabel.snp.remakeConstraints { (make) in
-            make.bottom.equalTo(0)
-            make.centerX.equalTo(self)
+        else {
+            contentView.snp.remakeConstraints { make in
+                make.edges.equalTo(0)
+            }
+            
+            iImageView.snp.remakeConstraints { (make) in
+                make.centerX.equalTo(self)
+                make.bottom.equalTo(tLabel.snp.top).offset(-spacing)
+                make.top.equalTo(0)
+                if imgSize != .zero {
+                    make.width.equalTo(imgSize.width)
+                    make.height.equalTo(imgSize.height)
+                }
+            }
+            
+            tLabel.snp.remakeConstraints { (make) in
+                make.centerX.equalTo(self)
+            }
         }
     }
 }
