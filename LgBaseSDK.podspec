@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LgBaseSDK'
-  s.version          = '0.5.6'
+  s.version          = '0.5.7'
   s.summary          = 'A short description of LgBaseSDK.'
 
 # This description is used to generate tags and improve search results.
@@ -43,11 +43,11 @@ TODO: 基础的组件库.
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
   
-  s.dependency 'SnapKit',           '5.0.1'
-  s.dependency 'RxSwift',           '6.5.0'
-  s.dependency 'RxCocoa',           '6.5.0'
-  s.dependency 'RxDataSources',     '5.0.0'
-  s.dependency 'JXSegmentedView',   '1.3.0'
-  s.dependency 'GTMRefresh', '~> 1.3.9'
+  s.dependency 'SnapKit'
+  s.dependency 'RxSwift'
+  s.dependency 'RxCocoa'
+  s.dependency 'RxDataSources'
+  s.dependency 'JXSegmentedView'
+  s.dependency 'GTMRefresh'
 
 end

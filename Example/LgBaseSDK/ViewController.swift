@@ -18,6 +18,8 @@ class ViewController: LGTabbarController {
         let mine = TabbarItem(title: "我的", image: "tabbar_profile", imageSelect: "tabbar_profile_hover", vc: BtMineViewController())
 
         self.items = [main, mine];
+        
+        CGFloat.width
     }
 
 }
