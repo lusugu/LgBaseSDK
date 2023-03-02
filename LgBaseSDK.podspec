@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LgBaseSDK'
-  s.version          = '0.6.1'
+  s.version          = '0.6.2'
   s.summary          = 'A short description of LgBaseSDK.'
 
 # This description is used to generate tags and improve search results.
@@ -35,6 +35,15 @@ TODO: 基础的组件库.
   s.resource_bundles = {
     'LgBaseSDK' => ['LgBaseSDK/Exclude/LgBaseSDK.bundle']
   }
+  
+  s.user_target_xcconfig = {
+      'GENERATE_INFOPLIST_FILE' => 'YES'
+  }
+
+  s.pod_target_xcconfig = {
+      'GENERATE_INFOPLIST_FILE' => 'YES'
+  }
+
 #  s.resource_bundles = {
 #    'LgBaseSDK' => ['LgBaseSDK/Assets/*.png']
 #  }
