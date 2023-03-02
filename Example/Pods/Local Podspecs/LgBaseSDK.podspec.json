@@ -1,6 +1,6 @@
 {
   "name": "LgBaseSDK",
-  "version": "0.5.6",
+  "version": "0.5.9",
   "summary": "A short description of LgBaseSDK.",
   "description": "TODO: 基础的组件库.",
   "homepage": "https://github.com/lusugu/LgBaseSDK",
@@ -13,10 +13,10 @@
   },
   "source": {
     "git": "https://github.com/lusugu/LgBaseSDK.git",
-    "tag": "0.5.6"
+    "tag": "0.5.9"
   },
   "platforms": {
-    "ios": "10.0"
+    "ios": "12.0"
   },
   "swift_versions": "5.0",
   "source_files": "LgBaseSDK/Classes/**/*",
