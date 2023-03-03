@@ -244,6 +244,20 @@ public extension LGViewController {
         navLeftBtn.isHidden = false
     }
     
+    func setLeftBtn(_ title: String = "",
+                    textColor: UIColor = .black,
+                    backgroundImage: UIImage? = nil,
+                     width: CGFloat = CGFloat.width / 4,
+                    state: UIControl.State = .normal) {
+        navLeftBtn.setTitle(title, for: state)
+        navLeftBtn.setTitleColor(textColor, for: state)
+        navLeftBtn.setBackgroundImage(backgroundImage, for: state)
+        var frame = navLeftBtn.frame
+        frame.size.width = width
+        navLeftBtn.frame = frame
+        navLeftBtn.isHidden = false
+    }
+    
     //MARK: - 右边按钮
     func setRightBtn(_ title: String = "",
                     textColor: UIColor = .black,
@@ -253,6 +267,20 @@ public extension LGViewController {
         navRightBtn.setTitleColor(textColor, for: state)
         navRightBtn.setImage(image, for: state)
         navRightBtn.isHidden = false
+    }
+    
+    func setRightBtn(_ title: String = "",
+                    textColor: UIColor = .black,
+                    backgroundImage: UIImage? = nil,
+                     width: CGFloat = CGFloat.width / 4,
+                    state: UIControl.State = .normal) {
+        navRightBtn.setTitle(title, for: state)
+        navRightBtn.setTitleColor(textColor, for: state)
+        navRightBtn.setBackgroundImage(backgroundImage, for: state)
+        navRightBtn.isHidden = false
+        var frame = navRightBtn.frame
+        frame.size.width = width
+        navRightBtn.frame = frame
     }
 }
 
