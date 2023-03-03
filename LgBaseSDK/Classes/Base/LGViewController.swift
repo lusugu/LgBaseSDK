@@ -272,14 +272,26 @@ public extension LGViewController {
     func setRightBtn(_ title: String = "",
                     textColor: UIColor = .black,
                     backgroundImage: UIImage? = nil,
+                     fontSize: CGFloat = 15,
                      width: CGFloat = CGFloat.width / 4,
+                     height: CGFloat = 44,
+                     radius: CGFloat = 0,
                     state: UIControl.State = .normal) {
         navRightBtn.setTitle(title, for: state)
         navRightBtn.setTitleColor(textColor, for: state)
+        navRightBtn.titleLabel?.font = .font(fontSize)
         navRightBtn.setBackgroundImage(backgroundImage, for: state)
         navRightBtn.isHidden = false
+        navRightBtn.viewBorderRadius(radius: radius)
         var frame = navRightBtn.frame
         frame.size.width = width
+        frame.size.height = height
+        if width != CGFloat.width / 4 {
+            frame.origin.x = CGFloat.width - 15 - width
+            frame.origin.y = frame.origin.y + (44 - height) / 2
+        }
+        navRightBtn.contentEdgeInsets = .zero
+        navRightBtn.contentHorizontalAlignment = .center
         navRightBtn.frame = frame
     }
 }
